@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logoBlau from "@/assets/logo-blau.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,11 +12,13 @@ export const Footer = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-center md:text-left"
+            className="text-center md:text-left flex flex-col items-center md:items-start"
           >
-            <span className="text-2xl font-serif font-bold text-primary-foreground">
-              Blau
-            </span>
+            <img 
+              src={logoBlau} 
+              alt="Blau Consultoria" 
+              className="h-10 w-auto brightness-0 invert"
+            />
             <p className="text-primary-foreground/70 text-sm mt-2">
               Consultoria em Educação Corporativa
             </p>
