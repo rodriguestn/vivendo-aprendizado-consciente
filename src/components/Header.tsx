@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoBlau from "@/assets/logo-blau.png";
 
 const navItems = [
   { label: "Educação Corporativa", href: "#educacao-corporativa" },
@@ -46,10 +47,12 @@ export const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <span className="text-2xl font-serif font-bold text-primary">
-              Blau
-            </span>
+          <a href="#" className="flex items-center">
+            <img 
+              src={logoBlau} 
+              alt="Blau Consultoria" 
+              className="h-12 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}
