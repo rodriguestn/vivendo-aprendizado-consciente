@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoBlau from "@/assets/logo-blau.png";
 
 const navItems = [
   { label: "Educação Corporativa", href: "#educacao-corporativa" },
-  { label: "Metodologia Blau", href: "#metodologia" },
-  { label: "Diagnóstico Empresarial", href: "#diagnostico" },
+  { label: "Metodologia", href: "#metodologia" },
+  { label: "Diagnóstico", href: "#diagnostico" },
   { label: "Quem Lidera", href: "#quem-lidera" },
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "Contato", href: "#contato" },
@@ -16,11 +16,11 @@ const navItems = [
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState<string | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -36,184 +36,180 @@ export const Header = () => {
 
   return (
     <>
-      {/* Top accent bar */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary z-[60] origin-left"
-      />
-      
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-1 left-0 right-0 z-50 transition-all duration-500 ${
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
           isScrolled
-            ? "bg-card/98 backdrop-blur-xl shadow-lg border-b border-border/50"
-            : "bg-gradient-to-b from-card/80 to-transparent backdrop-blur-sm"
+            ? "bg-background/95 backdrop-blur-2xl shadow-[0_1px_0_0_hsl(var(--border))]"
+            : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className={`flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "h-20" : "h-24"
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className={`flex items-center justify-between transition-all duration-500 ${
+            isScrolled ? "h-20" : "h-28"
           }`}>
-            {/* Logo with enhanced styling */}
+            {/* Logo */}
             <motion.a 
               href="#" 
-              className="flex items-center group"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="relative z-10"
               whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 400 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
             >
-              <div className="relative">
-                <img 
-                  src={logoBlau} 
-                  alt="Blau Consultoria" 
-                  className={`w-auto transition-all duration-300 ${
-                    isScrolled ? "h-14" : "h-16 lg:h-20"
-                  }`}
-                />
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </div>
+              <img 
+                src={logoBlau} 
+                alt="Blau Consultoria" 
+                className={`w-auto transition-all duration-500 ${
+                  isScrolled ? "h-12 lg:h-14" : "h-16 lg:h-20"
+                }`}
+              />
             </motion.a>
 
-            {/* Desktop Navigation - Enhanced */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.href}
-                  onClick={() => scrollToSection(item.href)}
-                  onMouseEnter={() => setActiveItem(item.href)}
-                  onMouseLeave={() => setActiveItem(null)}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-all duration-300 group"
-                >
-                  <span className="relative z-10">{item.label}</span>
-                  
-                  {/* Hover background */}
-                  <motion.div
-                    className="absolute inset-0 bg-primary/5 rounded-lg"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ 
-                      opacity: activeItem === item.href ? 1 : 0,
-                      scale: activeItem === item.href ? 1 : 0.9
-                    }}
-                    transition={{ duration: 0.2 }}
-                  />
-                  
-                  {/* Bottom indicator */}
-                  <motion.div
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-primary rounded-full"
-                    initial={{ width: 0 }}
-                    animate={{ width: activeItem === item.href ? "60%" : 0 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                </motion.button>
-              ))}
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden lg:flex items-center">
+              <div className="flex items-center gap-1 bg-muted/30 backdrop-blur-sm rounded-full px-2 py-1.5">
+                {navItems.map((item) => (
+                  <motion.button
+                    key={item.href}
+                    onClick={() => scrollToSection(item.href)}
+                    onMouseEnter={() => setHoveredItem(item.href)}
+                    onMouseLeave={() => setHoveredItem(null)}
+                    className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  >
+                    <span className="relative z-10">{item.label}</span>
+                    
+                    {hoveredItem === item.href && (
+                      <motion.div
+                        layoutId="nav-hover"
+                        className="absolute inset-0 bg-background rounded-full shadow-sm"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        style={{ zIndex: -1 }}
+                      />
+                    )}
+                  </motion.button>
+                ))}
+              </div>
             </nav>
 
-            {/* CTA Button - Enhanced */}
+            {/* CTA Button */}
             <div className="hidden lg:block">
               <motion.div
-                whileHover={{ scale: 1.03 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 <Button
-                  variant="navCta"
                   onClick={() => scrollToSection("#contato")}
-                  className="group relative overflow-hidden px-6 py-3 font-semibold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
+                  className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-full font-medium text-sm shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
                 >
-                  <span className="relative z-10 flex items-center gap-2">
-                    Falar com a Blau
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                  <span>Falar com a Blau</span>
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
                 </Button>
               </motion.div>
             </div>
 
-            {/* Mobile Menu Toggle - Enhanced */}
+            {/* Mobile Menu Toggle */}
             <motion.button
-              className="lg:hidden p-3 text-foreground rounded-xl bg-muted/50 hover:bg-muted transition-colors"
+              className="lg:hidden relative z-10 p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
             >
-              <AnimatePresence mode="wait">
-                {isMobileMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X size={24} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu size={24} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div className="w-6 h-5 flex flex-col justify-between">
+                <motion.span
+                  animate={{
+                    rotate: isMobileMenuOpen ? 45 : 0,
+                    y: isMobileMenuOpen ? 8 : 0,
+                  }}
+                  className="w-full h-0.5 bg-foreground origin-left transition-all"
+                />
+                <motion.span
+                  animate={{
+                    opacity: isMobileMenuOpen ? 0 : 1,
+                    x: isMobileMenuOpen ? -20 : 0,
+                  }}
+                  className="w-full h-0.5 bg-foreground transition-all"
+                />
+                <motion.span
+                  animate={{
+                    rotate: isMobileMenuOpen ? -45 : 0,
+                    y: isMobileMenuOpen ? -8 : 0,
+                  }}
+                  className="w-full h-0.5 bg-foreground origin-left transition-all"
+                />
+              </div>
             </motion.button>
           </div>
         </div>
+      </motion.header>
 
-        {/* Mobile Menu - Enhanced */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
+      {/* Full Screen Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 lg:hidden"
+          >
+            {/* Backdrop */}
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="lg:hidden bg-card/98 backdrop-blur-xl border-t border-border/50 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-background/98 backdrop-blur-xl"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Menu Content */}
+            <motion.nav
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="relative h-full flex flex-col justify-center items-center px-8"
             >
-              <nav className="container mx-auto px-6 py-8 flex flex-col gap-2">
+              <div className="flex flex-col items-center gap-2 w-full max-w-sm">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.href}
                     onClick={() => scrollToSection(item.href)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="text-left text-lg font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all py-4 px-4 rounded-xl flex items-center justify-between group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ delay: index * 0.05 + 0.1 }}
+                    className="w-full text-center py-4 text-2xl font-medium text-foreground hover:text-primary transition-colors"
                   >
                     {item.label}
-                    <ChevronRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                   </motion.button>
                 ))}
+                
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-4 pt-4 border-t border-border/50"
+                  transition={{ delay: 0.4 }}
+                  className="w-full pt-8"
                 >
                   <Button
-                    variant="accent"
-                    className="w-full py-4 text-lg font-semibold"
                     onClick={() => scrollToSection("#contato")}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 rounded-full font-medium text-lg"
                   >
                     Falar com a Blau
+                    <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </motion.div>
-              </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.header>
+              </div>
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
