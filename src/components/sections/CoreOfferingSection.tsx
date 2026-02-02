@@ -34,7 +34,7 @@ export const CoreOfferingSection = () => {
     <section
       id="educacao-corporativa"
       ref={ref}
-      className="py-24 bg-background"
+      className="py-24 lg:py-32 bg-background"
     >
       <div className="container mx-auto px-6">
         {/* Header */}

@@ -1,15 +1,17 @@
-import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
-import { PainPointSection } from "@/components/PainPointSection";
-import { CoreOfferingSection } from "@/components/CoreOfferingSection";
-import { EducationStructure } from "@/components/EducationStructure";
-import { MethodologySection } from "@/components/MethodologySection";
-import { DiagnosisSection } from "@/components/DiagnosisSection";
-import { BenefitsSection } from "@/components/BenefitsSection";
-import { LeadershipSection } from "@/components/LeadershipSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { ContactSection } from "@/components/ContactSection";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { StatsSection } from "@/components/sections/StatsSection";
+import { PainPointSection } from "@/components/sections/PainPointSection";
+import { JourneySection } from "@/components/sections/JourneySection";
+import { EducationalPrinciplesSection } from "@/components/sections/EducationalPrinciplesSection";
+import { NucleoVisualizationSection } from "@/components/sections/NucleoVisualizationSection";
+import { MethodologySection } from "@/components/sections/MethodologySection";
+import { BenefitsSection } from "@/components/sections/BenefitsSection";
+import { LeadershipSection } from "@/components/sections/LeadershipSection";
+import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { FinalCTASection } from "@/components/sections/FinalCTASection";
+import { ContactSection } from "@/components/sections/ContactSection";
 
 const Index = () => {
   return (
@@ -17,14 +19,16 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <StatsSection />
         <PainPointSection />
-        <CoreOfferingSection />
-        <EducationStructure />
+        <JourneySection />
+        <EducationalPrinciplesSection />
+        <NucleoVisualizationSection />
         <MethodologySection />
-        <DiagnosisSection />
         <BenefitsSection />
         <LeadershipSection />
         <TestimonialsSection />
+        <FinalCTASection />
         <ContactSection />
       </main>
       <Footer />

@@ -23,7 +23,7 @@ export const PainPointSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-24 bg-secondary">
+    <section ref={ref} className="py-24 lg:py-32 bg-gradient-subtle">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -49,19 +49,19 @@ export const PainPointSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
           {painPoints.map((point, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-card p-8 rounded-xl shadow-soft hover:shadow-medium transition-shadow duration-300"
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="bg-card border border-border p-8 rounded-2xl hover:shadow-lg hover:border-primary/20 transition-all duration-300"
             >
               <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
                 <point.icon className="w-7 h-7 text-primary" />
               </div>
-              <p className="text-lg font-medium text-foreground">
+              <p className="text-lg font-semibold text-foreground leading-snug">
                 {point.title}
               </p>
             </motion.div>

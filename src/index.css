@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 /* Blau Consultoria Design System
    Corporate, humanized, sophisticated
@@ -12,8 +12,8 @@
 @layer base {
   :root {
     /* Core backgrounds */
-    --background: 210 25% 98%;
-    --foreground: 215 25% 15%;
+    --background: 220 30% 98%;
+    --foreground: 227 25% 15%;
 
     /* Cards and surfaces */
     --card: 0 0% 100%;
@@ -22,19 +22,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 15%;
 
-    /* Primary - Institutional Blue */
-    --primary: 215 70% 25%;
+    /* Primary - Vibrant Blue #2452ff */
+    --primary: 227 100% 57%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 215 60% 45%;
-    --primary-dark: 215 75% 18%;
+    --primary-light: 227 100% 67%;
+    --primary-dark: 227 100% 47%;
 
     /* Secondary - Light Gray */
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 215 25% 25%;
+    --secondary: 220 25% 96%;
+    --secondary-foreground: 227 25% 25%;
 
     /* Muted tones */
-    --muted: 210 15% 94%;
-    --muted-foreground: 215 15% 45%;
+    --muted: 220 20% 94%;
+    --muted-foreground: 227 15% 45%;
 
     /* Accent - Warm Orange */
     --accent: 25 95% 55%;
@@ -45,15 +45,15 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
-    --ring: 215 70% 25%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 227 100% 57%;
 
     --radius: 0.75rem;
 
     /* Custom gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(215 70% 25%) 0%, hsl(215 60% 35%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(210 25% 98%) 0%, hsl(210 20% 96%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(227 100% 57%) 0%, hsl(227 100% 67%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 30% 98%) 0%, hsl(220 25% 96%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(30 90% 50%) 100%);
 
     /* Shadows */
@@ -82,10 +82,10 @@
     --popover: 215 25% 12%;
     --popover-foreground: 210 20% 95%;
 
-    --primary: 215 60% 55%;
+    --primary: 227 100% 67%;
     --primary-foreground: 215 30% 8%;
-    --primary-light: 215 55% 65%;
-    --primary-dark: 215 65% 45%;
+    --primary-light: 227 100% 77%;
+    --primary-dark: 227 100% 57%;
 
     --secondary: 215 20% 18%;
     --secondary-foreground: 210 20% 90%;
@@ -102,7 +102,7 @@
 
     --border: 215 20% 20%;
     --input: 215 20% 20%;
-    --ring: 215 60% 55%;
+    --ring: 227 100% 67%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -120,13 +120,62 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', Georgia, serif;
+    letter-spacing: -0.025em;
+    font-feature-settings: 'ss01';
+    font-weight: 700;
+  }
+
+  h1 {
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  p, li, span {
+    font-feature-settings: 'kern', 'liga';
+    letter-spacing: -0.011em;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
   }
 }
 
@@ -158,5 +207,75 @@
 
   .bg-gradient-accent {
     background: var(--gradient-accent);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-lg bg-card/80 border border-border/50;
+  }
+
+  /* Animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.3);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

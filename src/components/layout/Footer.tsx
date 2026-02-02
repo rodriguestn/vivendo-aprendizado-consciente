@@ -1,25 +1,34 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import logoBlau from "@/assets/logo-blau.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleNavigation = (href: string) => {
+    // Check if it's a route (starts with /) or anchor (starts with #)
+    if (href.startsWith('/')) {
+      // Navigate to a different page
+      navigate(href);
+    } else if (href.startsWith('#')) {
+      // Scroll to section on current page
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
   const navigationLinks = [
     { label: "Educação Corporativa", href: "#educacao-corporativa" },
     { label: "Metodologia", href: "#metodologia" },
-    { label: "Diagnóstico", href: "#diagnostico" },
+    { label: "Blau Mapa", href: "/diagnostico" },
     { label: "Quem Lidera", href: "#quem-lidera" },
   ];
 
@@ -67,7 +76,7 @@ export const Footer = () => {
               href="#contato"
               onClick={(e) => {
                 e.preventDefault();
-                scrollToSection("#contato");
+                handleNavigation("#contato");
               }}
               className="group inline-flex items-center gap-3 text-primary-foreground text-lg font-medium hover:opacity-80 transition-opacity"
             >
@@ -89,10 +98,13 @@ export const Footer = () => {
               viewport={{ once: true }}
               className="col-span-2 md:col-span-1"
             >
-              <img 
-                src={logoBlau} 
-                alt="Blau Consultoria" 
-                className="h-10 w-auto brightness-0 invert mb-6"
+              <img
+                src={logoBlau}
+                alt="Blau Consultoria"
+                className="h-10 w-auto mb-6"
+                style={{
+                  filter: "drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 4px rgba(255,255,255,0.8)) brightness(1.3) contrast(1.1)"
+                }}
               />
               <p className="text-primary-foreground/60 text-sm leading-relaxed">
                 Transformando empresas através de educação corporativa estratégica.
@@ -113,7 +125,7 @@ export const Footer = () => {
                 {navigationLinks.map((link) => (
                   <li key={link.href}>
                     <button
-                      onClick={() => scrollToSection(link.href)}
+                      onClick={() => handleNavigation(link.href)}
                       className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors duration-200"
                     >
                       {link.label}
@@ -137,7 +149,7 @@ export const Footer = () => {
                 {contactLinks.map((link) => (
                   <li key={link.href}>
                     <button
-                      onClick={() => scrollToSection(link.href)}
+                      onClick={() => handleNavigation(link.href)}
                       className="text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors duration-200"
                     >
                       {link.label}
