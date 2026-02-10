@@ -29,7 +29,7 @@ export const Footer = () => {
     { label: "Educação Corporativa", href: "#educacao-corporativa" },
     { label: "Metodologia", href: "#metodologia" },
     { label: "Blau Mapa", href: "/diagnostico" },
-    { label: "Quem Lidera", href: "#quem-lidera" },
+    { label: "Blog", href: "/blog" },
   ];
 
   const contactLinks = [

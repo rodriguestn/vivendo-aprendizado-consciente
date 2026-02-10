@@ -1,0 +1,331 @@
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  Clock,
+  ArrowLeft,
+  Share2,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Tag,
+  ChevronRight,
+  BookOpen
+} from "lucide-react";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { BlogCard } from "@/components/blog/BlogCard";
+import { getPostBySlug, getRecentPosts, blogPosts } from "@/data/blogPosts";
+import ReactMarkdown from 'react-markdown';
+
+const BlogPost = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const post = slug ? getPostBySlug(slug) : undefined;
+
+  if (!post) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Artigo não encontrado</h1>
+          <p className="text-gray-600 mb-8">O artigo que você está procurando não existe.</p>
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Voltar ao Blog
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // Get related posts (same category, excluding current)
+  const relatedPosts = blogPosts
+    .filter(p => p.category === post.category && p.id !== post.id)
+    .slice(0, 3);
+
+  // Get recent posts for sidebar
+  const recentPosts = getRecentPosts(5).filter(p => p.id !== post.id);
+
+  const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const shareTitle = post.title;
+
+  const handleShare = (platform: string) => {
+    const urls: Record<string, string> = {
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
+      twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
+    };
+    window.open(urls[platform], '_blank', 'width=600,height=400');
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+
+      <main>
+        {/* Hero Section */}
+        <section className="relative py-20 md:py-28 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-gray-900/40" />
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto">
+              {/* Breadcrumb */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-2 text-sm text-gray-300 mb-6"
+              >
+                <Link to="/" className="hover:text-white transition">Home</Link>
+                <ChevronRight className="w-4 h-4" />
+                <Link to="/blog" className="hover:text-white transition">Blog</Link>
+                <ChevronRight className="w-4 h-4" />
+                <span className="text-amber-400">{post.category}</span>
+              </motion.div>
+
+              {/* Category Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                <span className="inline-block px-4 py-1 bg-blue-600 text-white text-sm font-medium rounded-full mb-4">
+                  {post.category}
+                </span>
+              </motion.div>
+
+              {/* Title */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+              >
+                {post.title}
+              </motion.h1>
+
+              {/* Meta */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="flex flex-wrap items-center gap-6 text-gray-300"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold">
+                    BC
+                  </div>
+                  <div>
+                    <p className="font-medium text-white">{post.author}</p>
+                    <p className="text-sm text-gray-400">{post.authorRole}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  <span>
+                    {new Date(post.date).toLocaleDateString('pt-BR', {
+                      day: '2-digit',
+                      month: 'long',
+                      year: 'numeric'
+                    })}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  <span>{post.readTime} de leitura</span>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Content Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-12 gap-12">
+              {/* Main Content */}
+              <article className="lg:col-span-8">
+                <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                  {/* Excerpt */}
+                  <p className="text-xl text-gray-600 leading-relaxed mb-8 pb-8 border-b border-gray-100">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Article Content */}
+                  <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-600 prose-p:leading-relaxed prose-a:text-blue-600 prose-strong:text-gray-900 prose-ul:text-gray-600 prose-ol:text-gray-600 prose-li:text-gray-600">
+                    <ReactMarkdown>{post.content}</ReactMarkdown>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="mt-12 pt-8 border-t border-gray-100">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Tag className="w-5 h-5 text-gray-400" />
+                      <span className="font-medium text-gray-900">Tags</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.map((tag, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full hover:bg-gray-200 transition cursor-pointer"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Share */}
+                  <div className="mt-8 pt-8 border-t border-gray-100">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <Share2 className="w-5 h-5 text-gray-400" />
+                        <span className="font-medium text-gray-900">Compartilhar</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => handleShare('linkedin')}
+                          className="p-2 rounded-full bg-[#0077b5] text-white hover:opacity-90 transition"
+                          aria-label="Compartilhar no LinkedIn"
+                        >
+                          <Linkedin className="w-5 h-5" />
+                        </button>
+                        <button
+                          onClick={() => handleShare('twitter')}
+                          className="p-2 rounded-full bg-[#1da1f2] text-white hover:opacity-90 transition"
+                          aria-label="Compartilhar no Twitter"
+                        >
+                          <Twitter className="w-5 h-5" />
+                        </button>
+                        <button
+                          onClick={() => handleShare('facebook')}
+                          className="p-2 rounded-full bg-[#4267B2] text-white hover:opacity-90 transition"
+                          aria-label="Compartilhar no Facebook"
+                        >
+                          <Facebook className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Author Card */}
+                  <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl">
+                    <div className="flex items-start gap-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white text-xl font-bold shrink-0">
+                        BC
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-gray-900 mb-1">{post.author}</h4>
+                        <p className="text-sm text-blue-600 mb-2">{post.authorRole}</p>
+                        <p className="text-gray-600 text-sm">
+                          Especialistas em transformar empresas através da educação corporativa estratégica.
+                          Com mais de 20 anos de experiência, ajudamos organizações a desenvolver seus
+                          talentos e criar culturas de aprendizado contínuo.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Back to Blog */}
+                <div className="mt-8">
+                  <button
+                    onClick={() => navigate('/blog')}
+                    className="inline-flex items-center gap-2 text-blue-600 font-medium hover:gap-3 transition-all"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Voltar ao Blog
+                  </button>
+                </div>
+              </article>
+
+              {/* Sidebar */}
+              <aside className="lg:col-span-4">
+                <div className="sticky top-24 space-y-8">
+                  {/* Recent Posts */}
+                  <div className="bg-white rounded-2xl shadow-lg p-6">
+                    <div className="flex items-center gap-2 mb-6">
+                      <BookOpen className="w-5 h-5 text-blue-600" />
+                      <h3 className="font-bold text-gray-900">Artigos Recentes</h3>
+                    </div>
+                    <div className="space-y-4">
+                      {recentPosts.slice(0, 4).map((recentPost) => (
+                        <Link
+                          key={recentPost.id}
+                          to={`/blog/${recentPost.slug}`}
+                          className="flex gap-3 group"
+                        >
+                          <img
+                            src={recentPost.image}
+                            alt={recentPost.title}
+                            className="w-16 h-16 object-cover rounded-lg shrink-0"
+                          />
+                          <div>
+                            <h4 className="text-sm font-medium text-gray-900 line-clamp-2 group-hover:text-blue-600 transition">
+                              {recentPost.title}
+                            </h4>
+                            <p className="text-xs text-gray-500 mt-1">{recentPost.readTime}</p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* CTA Card */}
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-lg p-6 text-white">
+                    <h3 className="font-bold text-xl mb-3">
+                      Quer Transformar Sua Empresa?
+                    </h3>
+                    <p className="text-blue-100 text-sm mb-6">
+                      Descubra como o Blau Mapa pode revelar oportunidades ocultas no seu negócio.
+                    </p>
+                    <Link
+                      to="/diagnostico"
+                      className="inline-block w-full text-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition"
+                    >
+                      Conhecer o Blau Mapa
+                    </Link>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Posts */}
+        {relatedPosts.length > 0 && (
+          <section className="py-16 bg-gray-100">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full" />
+                <h2 className="text-2xl font-bold text-gray-900">Artigos Relacionados</h2>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {relatedPosts.map((relatedPost) => (
+                  <BlogCard key={relatedPost.id} post={relatedPost} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default BlogPost;
