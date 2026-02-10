@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowUp } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import logoBlau from "@/assets/logo-blau.png";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -16,11 +17,24 @@ export const Footer = () => {
     if (href.startsWith('/')) {
       // Navigate to a different page
       navigate(href);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (href.startsWith('#')) {
-      // Scroll to section on current page
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // If not on home page, navigate to home first then scroll
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation then scroll
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        // Already on home page, just scroll
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   };

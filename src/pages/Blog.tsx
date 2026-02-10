@@ -39,7 +39,7 @@ const Blog = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 overflow-hidden">
+        <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
           {/* Background */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900" />
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
@@ -54,14 +54,14 @@ const Blog = () => {
                 <span className="inline-block px-4 py-2 bg-blue-500/20 text-blue-200 rounded-full text-sm font-medium mb-6">
                   Blog Blau Consultoria
                 </span>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6">
                   Insights Para{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">
                     Transformar
                   </span>{" "}
                   Sua Empresa
                 </h1>
-                <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-blue-100 mb-8 md:mb-10 max-w-2xl mx-auto px-4">
                   Artigos especializados sobre educação corporativa, desenvolvimento de líderes e
                   formação de núcleos educacionais que geram resultados reais.
                 </p>
@@ -108,9 +108,9 @@ const Blog = () => {
         </section>
 
         {/* Categories Filter */}
-        <section className="py-8 bg-white border-b border-gray-100 sticky top-0 z-40">
+        <section className="py-4 md:py-6 bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-20 z-30">
           <div className="container mx-auto px-4">
-            <div className="flex items-center gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex items-center gap-3 md:gap-4 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
               <div className="flex items-center gap-2 text-gray-500 shrink-0">
                 <Filter className="w-4 h-4" />
                 <span className="text-sm font-medium">Filtrar:</span>
@@ -146,14 +146,14 @@ const Blog = () => {
 
         {/* Featured Posts */}
         {!searchTerm && !selectedCategory && (
-          <section className="py-16 bg-gray-50">
+          <section className="py-12 md:py-16 bg-gray-50">
             <div className="container mx-auto px-4">
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-6 md:mb-8">
                 <div className="w-1 h-8 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full" />
-                <h2 className="text-2xl font-bold text-gray-900">Artigos em Destaque</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Artigos em Destaque</h2>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid gap-6 md:grid-cols-2 md:gap-8">
                 {featuredPosts.slice(0, 2).map((post) => (
                   <BlogCard key={post.id} post={post} featured />
                 ))}
@@ -163,12 +163,12 @@ const Blog = () => {
         )}
 
         {/* All Posts */}
-        <section className="py-16">
+        <section className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 md:mb-8">
               <div className="flex items-center gap-3">
                 <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full" />
-                <h2 className="text-2xl font-bold text-gray-900">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">
                   {selectedCategory ? selectedCategory : "Todos os Artigos"}
                 </h2>
               </div>
@@ -179,7 +179,7 @@ const Blog = () => {
             </div>
 
             {filteredPosts.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
                 {filteredPosts.map((post) => (
                   <BlogCard key={post.id} post={post} />
                 ))}

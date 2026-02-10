@@ -67,7 +67,7 @@ const BlogPost = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="relative py-20 md:py-28 overflow-hidden">
+        <section className="relative pt-28 pb-12 md:pt-36 md:pb-20 overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0">
             <img
@@ -85,13 +85,13 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="flex items-center gap-2 text-sm text-gray-300 mb-6"
+                className="flex items-center gap-2 text-xs md:text-sm text-gray-300 mb-4 md:mb-6 overflow-x-auto whitespace-nowrap"
               >
                 <Link to="/" className="hover:text-white transition">Home</Link>
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-3 h-3 md:w-4 md:h-4 shrink-0" />
                 <Link to="/blog" className="hover:text-white transition">Blog</Link>
-                <ChevronRight className="w-4 h-4" />
-                <span className="text-amber-400">{post.category}</span>
+                <ChevronRight className="w-3 h-3 md:w-4 md:h-4 shrink-0" />
+                <span className="text-amber-400 truncate">{post.category}</span>
               </motion.div>
 
               {/* Category Badge */}
@@ -100,7 +100,7 @@ const BlogPost = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <span className="inline-block px-4 py-1 bg-blue-600 text-white text-sm font-medium rounded-full mb-4">
+                <span className="inline-block px-3 py-1 bg-blue-600 text-white text-xs md:text-sm font-medium rounded-full mb-3 md:mb-4">
                   {post.category}
                 </span>
               </motion.div>
@@ -110,7 +110,7 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
+                className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight"
               >
                 {post.title}
               </motion.h1>
@@ -120,32 +120,32 @@ const BlogPost = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex flex-wrap items-center gap-6 text-gray-300"
+                className="flex flex-wrap items-center gap-3 md:gap-6 text-sm md:text-base text-gray-300"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white font-bold">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white text-sm md:text-base font-bold">
                     BC
                   </div>
                   <div>
-                    <p className="font-medium text-white">{post.author}</p>
-                    <p className="text-sm text-gray-400">{post.authorRole}</p>
+                    <p className="font-medium text-white text-sm md:text-base">{post.author}</p>
+                    <p className="text-xs md:text-sm text-gray-400 hidden md:block">{post.authorRole}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
+                <div className="flex items-center gap-1 text-xs md:text-sm">
+                  <Calendar className="w-3 h-3 md:w-4 md:h-4" />
                   <span>
                     {new Date(post.date).toLocaleDateString('pt-BR', {
                       day: '2-digit',
-                      month: 'long',
+                      month: 'short',
                       year: 'numeric'
                     })}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  <span>{post.readTime} de leitura</span>
+                <div className="flex items-center gap-1 text-xs md:text-sm">
+                  <Clock className="w-3 h-3 md:w-4 md:h-4" />
+                  <span>{post.readTime}</span>
                 </div>
               </motion.div>
             </div>
@@ -153,19 +153,19 @@ const BlogPost = () => {
         </section>
 
         {/* Content Section */}
-        <section className="py-16">
+        <section className="py-8 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-12 gap-12">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
               {/* Main Content */}
-              <article className="lg:col-span-8">
-                <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+              <article className="lg:col-span-8 order-2 lg:order-1">
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg p-5 md:p-8 lg:p-12">
                   {/* Excerpt */}
-                  <p className="text-xl text-gray-600 leading-relaxed mb-8 pb-8 border-b border-gray-100">
+                  <p className="text-base md:text-xl text-gray-600 leading-relaxed mb-6 md:mb-8 pb-6 md:pb-8 border-b border-gray-100">
                     {post.excerpt}
                   </p>
 
                   {/* Article Content */}
-                  <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-600 prose-p:leading-relaxed prose-a:text-blue-600 prose-strong:text-gray-900 prose-ul:text-gray-600 prose-ol:text-gray-600 prose-li:text-gray-600">
+                  <div className="prose prose-sm md:prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-p:text-gray-600 prose-p:leading-relaxed prose-a:text-blue-600 prose-strong:text-gray-900 prose-ul:text-gray-600 prose-ol:text-gray-600 prose-li:text-gray-600">
                     <ReactMarkdown>{post.content}</ReactMarkdown>
                   </div>
 
@@ -251,11 +251,27 @@ const BlogPost = () => {
                 </div>
               </article>
 
-              {/* Sidebar */}
-              <aside className="lg:col-span-4">
-                <div className="sticky top-24 space-y-8">
-                  {/* Recent Posts */}
-                  <div className="bg-white rounded-2xl shadow-lg p-6">
+              {/* Sidebar - CTA on mobile */}
+              <aside className="lg:col-span-4 order-1 lg:order-2">
+                <div className="lg:sticky lg:top-24 space-y-6 lg:space-y-8">
+                  {/* CTA Card - Shows first on mobile */}
+                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl md:rounded-2xl shadow-lg p-5 md:p-6 text-white">
+                    <h3 className="font-bold text-lg md:text-xl mb-2 md:mb-3">
+                      Quer Transformar Sua Empresa?
+                    </h3>
+                    <p className="text-blue-100 text-sm mb-4 md:mb-6">
+                      Descubra como o Blau Mapa pode revelar oportunidades ocultas no seu negócio.
+                    </p>
+                    <Link
+                      to="/diagnostico"
+                      className="inline-block w-full text-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition"
+                    >
+                      Conhecer o Blau Mapa
+                    </Link>
+                  </div>
+
+                  {/* Recent Posts - Hidden on mobile, visible on lg */}
+                  <div className="hidden lg:block bg-white rounded-2xl shadow-lg p-6">
                     <div className="flex items-center gap-2 mb-6">
                       <BookOpen className="w-5 h-5 text-blue-600" />
                       <h3 className="font-bold text-gray-900">Artigos Recentes</h3>
@@ -282,22 +298,6 @@ const BlogPost = () => {
                       ))}
                     </div>
                   </div>
-
-                  {/* CTA Card */}
-                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-lg p-6 text-white">
-                    <h3 className="font-bold text-xl mb-3">
-                      Quer Transformar Sua Empresa?
-                    </h3>
-                    <p className="text-blue-100 text-sm mb-6">
-                      Descubra como o Blau Mapa pode revelar oportunidades ocultas no seu negócio.
-                    </p>
-                    <Link
-                      to="/diagnostico"
-                      className="inline-block w-full text-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition"
-                    >
-                      Conhecer o Blau Mapa
-                    </Link>
-                  </div>
                 </div>
               </aside>
             </div>
@@ -306,14 +306,14 @@ const BlogPost = () => {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <section className="py-16 bg-gray-100">
+          <section className="py-12 md:py-16 bg-gray-100">
             <div className="container mx-auto px-4">
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-6 md:mb-8">
                 <div className="w-1 h-8 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full" />
-                <h2 className="text-2xl font-bold text-gray-900">Artigos Relacionados</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Artigos Relacionados</h2>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-8">
                 {relatedPosts.map((relatedPost) => (
                   <BlogCard key={relatedPost.id} post={relatedPost} />
                 ))}

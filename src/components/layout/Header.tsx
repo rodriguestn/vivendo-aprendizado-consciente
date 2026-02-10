@@ -33,11 +33,24 @@ export const Header = () => {
     if (href.startsWith('/')) {
       // Navigate to a different page
       navigate(href);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (href.startsWith('#')) {
-      // Scroll to section on current page
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // If not on home page, navigate to home first then scroll
+      if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation then scroll
+        setTimeout(() => {
+          const element = document.querySelector(href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        // Already on home page, just scroll
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
     setIsMobileMenuOpen(false);
@@ -165,9 +178,12 @@ export const Header = () => {
 
             {/* Mobile Menu Toggle */}
             <motion.button
-              className="lg:hidden relative z-10 p-2"
+              className="lg:hidden relative z-50 p-3 rounded-full"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
+              style={{
+                backgroundColor: isMobileMenuOpen ? 'transparent' : (isScrolled ? 'transparent' : 'rgba(255,255,255,0.1)')
+              }}
             >
               <div className="w-6 h-5 flex flex-col justify-between">
                 <motion.span
@@ -175,21 +191,27 @@ export const Header = () => {
                     rotate: isMobileMenuOpen ? 45 : 0,
                     y: isMobileMenuOpen ? 8 : 0,
                   }}
-                  className="w-full h-0.5 bg-foreground origin-left transition-all"
+                  className={`w-full h-0.5 origin-left transition-all ${
+                    isScrolled || isMobileMenuOpen ? "bg-foreground" : "bg-white"
+                  }`}
                 />
                 <motion.span
                   animate={{
                     opacity: isMobileMenuOpen ? 0 : 1,
                     x: isMobileMenuOpen ? -20 : 0,
                   }}
-                  className="w-full h-0.5 bg-foreground transition-all"
+                  className={`w-full h-0.5 transition-all ${
+                    isScrolled || isMobileMenuOpen ? "bg-foreground" : "bg-white"
+                  }`}
                 />
                 <motion.span
                   animate={{
                     rotate: isMobileMenuOpen ? -45 : 0,
                     y: isMobileMenuOpen ? -8 : 0,
                   }}
-                  className="w-full h-0.5 bg-foreground origin-left transition-all"
+                  className={`w-full h-0.5 origin-left transition-all ${
+                    isScrolled || isMobileMenuOpen ? "bg-foreground" : "bg-white"
+                  }`}
                 />
               </div>
             </motion.button>
