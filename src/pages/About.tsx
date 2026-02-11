@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { CalinkaOrbital } from "@/components/about/CalinkaOrbital";
 import calinkaPortrait from "@/assets/calinka-portrait.jpg";
 
 const About = () => {
@@ -325,6 +326,9 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Calinka Orbital Visualization */}
+        <CalinkaOrbital />
 
         {/* Credentials Section */}
         <section className="py-20 md:py-28 bg-white">
