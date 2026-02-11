@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import calinkaPortrait from "@/assets/calinka-portrait.jpg";
 
 const About = () => {
   const timeline = [
@@ -177,11 +178,13 @@ const About = () => {
                     </blockquote>
 
                     <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center text-white text-2xl font-bold">
-                        CK
-                      </div>
+                      <img
+                        src={calinkaPortrait}
+                        alt="Calinka Rodor"
+                        className="w-16 h-16 rounded-full object-cover border-2 border-amber-400"
+                      />
                       <div>
-                        <p className="text-white font-semibold text-lg">Calinka Kombi</p>
+                        <p className="text-white font-semibold text-lg">Calinka Rodor</p>
                         <p className="text-blue-200">Fundadora da Blau Consultoria</p>
                       </div>
                     </div>
@@ -232,7 +235,7 @@ const About = () => {
                 </p>
               </motion.div>
 
-              {/* Story Text */}
+              {/* Story with Photo */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -240,33 +243,51 @@ const About = () => {
                 transition={{ delay: 0.2 }}
                 className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-16"
               >
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Tudo começou com uma <strong className="text-gray-900">paixão genuína por ensinar</strong>.
-                    Formada em Letras pela Universidade Federal do Espírito Santo, Calinka dedicou anos
-                    ao ensino, desenvolvendo uma compreensão profunda de como adultos aprendem, se motivam
-                    e transformam conhecimento em ação.
-                  </p>
+                <div className="grid lg:grid-cols-5 gap-8 items-start">
+                  {/* Photo Column */}
+                  <div className="lg:col-span-2">
+                    <div className="relative">
+                      <img
+                        src={calinkaPortrait}
+                        alt="Calinka Rodor - Fundadora da Blau Consultoria"
+                        className="w-full max-w-sm mx-auto rounded-2xl shadow-lg object-cover aspect-[3/4]"
+                      />
+                      <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-4 py-2 rounded-xl shadow-lg">
+                        <p className="font-bold">Calinka Rodor</p>
+                        <p className="text-xs text-blue-200">Fundadora</p>
+                      </div>
+                    </div>
+                  </div>
 
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    A especialização em Gestão Escolar abriu novos horizontes: não bastava ensinar bem,
-                    era preciso <strong className="text-gray-900">criar sistemas que multiplicassem o aprendizado</strong>.
-                    Foi ali que nasceu a visão que hoje guia a Blau: empresas podem (e devem) ser
-                    ambientes onde o desenvolvimento humano acontece de forma estratégica e contínua.
-                  </p>
+                  {/* Text Column */}
+                  <div className="lg:col-span-3 prose prose-lg max-w-none">
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      Tudo começou com uma <strong className="text-gray-900">paixão genuína por ensinar</strong>.
+                      Formada em Letras pela Universidade Federal do Espírito Santo, Calinka dedicou anos
+                      ao ensino, desenvolvendo uma compreensão profunda de como adultos aprendem, se motivam
+                      e transformam conhecimento em ação.
+                    </p>
 
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    Em <strong className="text-gray-900">2022, a Blau Consultoria nasceu</strong> com uma missão clara:
-                    levar a excelência da educação para o mundo corporativo. Não como treinamentos
-                    pontuais, mas como uma <strong className="text-gray-900">transformação cultural</strong> que
-                    forma núcleos educacionais dentro das próprias organizações.
-                  </p>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      A especialização em Gestão Escolar abriu novos horizontes: não bastava ensinar bem,
+                      era preciso <strong className="text-gray-900">criar sistemas que multiplicassem o aprendizado</strong>.
+                      Foi ali que nasceu a visão que hoje guia a Blau: empresas podem (e devem) ser
+                      ambientes onde o desenvolvimento humano acontece de forma estratégica e contínua.
+                    </p>
 
-                  <p className="text-gray-600 leading-relaxed">
-                    Hoje, a Blau atua como <strong className="text-gray-900">mentora de startups no programa Seedes</strong>,
-                    do Governo do Espírito Santo, e continua sua missão de provar que investir em
-                    educação corporativa é o caminho mais inteligente para o crescimento sustentável.
-                  </p>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      Em <strong className="text-gray-900">2022, a Blau Consultoria nasceu</strong> com uma missão clara:
+                      levar a excelência da educação para o mundo corporativo. Não como treinamentos
+                      pontuais, mas como uma <strong className="text-gray-900">transformação cultural</strong> que
+                      forma núcleos educacionais dentro das próprias organizações.
+                    </p>
+
+                    <p className="text-gray-600 leading-relaxed">
+                      Hoje, a Blau atua como <strong className="text-gray-900">mentora de startups no programa Seedes</strong>,
+                      do Governo do Espírito Santo, e continua sua missão de provar que investir em
+                      educação corporativa é o caminho mais inteligente para o crescimento sustentável.
+                    </p>
+                  </div>
                 </div>
               </motion.div>
 
