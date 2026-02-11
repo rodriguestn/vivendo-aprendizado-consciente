@@ -42,6 +42,7 @@ export const Footer = () => {
   const navigationLinks = [
     { label: "Educação Corporativa", href: "#educacao-corporativa" },
     { label: "Metodologia", href: "#metodologia" },
+    { label: "Sobre", href: "/sobre" },
     { label: "Blau Mapa", href: "/diagnostico" },
     { label: "Blog", href: "/blog" },
   ];

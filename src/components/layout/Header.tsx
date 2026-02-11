@@ -8,7 +8,7 @@ import logoBlau from "@/assets/logo-blau.png";
 const navItems = [
   { label: "Educação Corporativa", href: "#educacao-corporativa" },
   { label: "Metodologia", href: "#metodologia" },
-  { label: "Quem Lidera", href: "#quem-lidera" },
+  { label: "Sobre", href: "/sobre" },
   { label: "Blog", href: "/blog" },
   { label: "Contato", href: "#contato" },
 ];
