@@ -390,7 +390,7 @@ export const EducationalPrinciplesSection = () => {
         </div>
 
         {/* Interactive Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
           {Object.entries(principles).map(([key, principle], index) => {
             const Icon = principle.icon;
             const isActive = hoveredElement === key;
@@ -406,9 +406,9 @@ export const EducationalPrinciplesSection = () => {
                 className="relative group cursor-pointer"
               >
                 <div
-                  className={`bg-card border-2 rounded-3xl p-8 transition-all duration-500 ${
+                  className={`bg-card border-2 rounded-3xl p-8 transition-all duration-500 h-full ${
                     isActive
-                      ? "border-primary shadow-2xl scale-105"
+                      ? "border-primary shadow-2xl -translate-y-1"
                       : "border-border shadow-lg hover:border-primary/50"
                   }`}
                 >
