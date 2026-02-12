@@ -19,8 +19,9 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SEO } from "@/components/common/SEO";
 import { CalinkaOrbital } from "@/components/about/CalinkaOrbital";
-import calinkaPortrait from "@/assets/calinka-portrait.jpg";
+import calinkaPortrait from "@/assets/calinka-portrait.png";
 
 const About = () => {
   const timeline = [
@@ -103,6 +104,11 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Sobre a Blau | Nossa História"
+        description="Conheça a história da Blau Consultoria, fundada por Calinka Rodor. Mais de 15 anos transformando empresas através da educação corporativa."
+        canonical="/sobre"
+      />
       <Header />
 
       <main>
@@ -138,7 +144,7 @@ const About = () => {
 
                   <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">
                     A Blau nasceu da crença de que <strong className="text-white">toda empresa pode se tornar
-                    um ambiente de aprendizado contínuo</strong>. Com mais de 15 anos dedicados à educação,
+                      um ambiente de aprendizado contínuo</strong>. Com mais de 15 anos dedicados à educação,
                     nossa fundadora traz uma visão única que une pedagogia, gestão e estratégia empresarial.
                   </p>
 
@@ -303,9 +309,8 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className={`relative flex items-center mb-8 ${
-                      index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                    }`}
+                    className={`relative flex items-center mb-8 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                      }`}
                   >
                     <div className={`flex-1 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
                       <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">

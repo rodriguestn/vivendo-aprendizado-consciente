@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import calinkaImage from "@/assets/calinka-portrait.jpg";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import calinkaImage from "@/assets/calinka-portrait.png";
 
 export const LeadershipSection = () => {
   const ref = useRef(null);
@@ -69,6 +71,14 @@ export const LeadershipSection = () => {
                 através das pessoas.
               </p>
             </div>
+
+            <Link
+              to="/sobre"
+              className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl"
+            >
+              Sobre Nós
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </div>

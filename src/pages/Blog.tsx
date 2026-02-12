@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Search, Filter, BookOpen, TrendingUp, Users, Lightbulb } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SEO } from "@/components/common/SEO";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { blogPosts, getAllCategories, getFeaturedPosts } from "@/data/blogPosts";
 
@@ -35,6 +36,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <SEO
+        title="Blog | Insights e Tendências"
+        description="Artigos, tendências e melhores práticas sobre educação corporativa, liderança e desenvolvimento humano."
+        canonical="/blog"
+      />
       <Header />
 
       <main>
@@ -118,11 +124,10 @@ const Blog = () => {
 
               <button
                 onClick={() => setSelectedCategory(null)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all shrink-0 ${
-                  !selectedCategory
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all shrink-0 ${!selectedCategory
                     ? "bg-blue-600 text-white"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
+                  }`}
               >
                 Todos
               </button>
@@ -131,11 +136,10 @@ const Blog = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all shrink-0 ${
-                    selectedCategory === category
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all shrink-0 ${selectedCategory === category
                       ? "bg-blue-600 text-white"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>

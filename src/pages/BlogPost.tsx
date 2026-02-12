@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SEO } from "@/components/common/SEO";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { getPostBySlug, getRecentPosts, blogPosts } from "@/data/blogPosts";
 import ReactMarkdown from 'react-markdown';
@@ -26,6 +27,7 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <SEO title="Artigo não encontrado" />
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Artigo não encontrado</h1>
           <p className="text-gray-600 mb-8">O artigo que você está procurando não existe.</p>
@@ -61,8 +63,39 @@ const BlogPost = () => {
     window.open(urls[platform], '_blank', 'width=600,height=400');
   };
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": [post.image],
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "author": [{
+      "@type": "Organization",
+      "name": post.author,
+      "url": "https://blauconsultoria.com.br"
+    }],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Blau Consultoria",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://blauconsultoria.com.br/assets/logo-blau.png"
+      }
+    },
+    "description": post.excerpt
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+        image={post.image}
+        type="article"
+        canonical={`/blog/${post.slug}`}
+        jsonLd={articleJsonLd}
+      />
       <Header />
 
       <main>
