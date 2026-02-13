@@ -21,6 +21,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/common/SEO";
 import { CalinkaOrbital } from "@/components/about/CalinkaOrbital";
+import { TeamSection } from "@/components/about/TeamSection";
 import calinkaPortrait from "@/assets/calinka-portrait.png";
 
 const About = () => {
@@ -334,6 +335,9 @@ const About = () => {
 
         {/* Calinka Orbital Visualization */}
         <CalinkaOrbital />
+
+        {/* Team & Consultants */}
+        <TeamSection />
 
         {/* Credentials Section */}
         <section className="py-20 md:py-28 bg-white">
