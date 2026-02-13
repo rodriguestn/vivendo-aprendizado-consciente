@@ -336,9 +336,6 @@ const About = () => {
         {/* Calinka Orbital Visualization */}
         <CalinkaOrbital />
 
-        {/* Team & Consultants */}
-        <TeamSection />
-
         {/* Credentials Section */}
         <section className="py-20 md:py-28 bg-white">
           <div className="container mx-auto px-4">
@@ -438,6 +435,9 @@ const About = () => {
             </div>
           </div>
         </section>
+
+        {/* Team & Consultants */}
+        <TeamSection />
 
         {/* Values Section */}
         <section className="py-20 md:py-28 bg-gray-50">
