@@ -76,58 +76,63 @@ export const TeamSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-gray-50 rounded-3xl p-6 md:p-8 lg:p-10">
-              <div className="grid lg:grid-cols-5 gap-8 items-center">
+            <div className="bg-gradient-to-br from-slate-50 to-gray-50 rounded-3xl border border-gray-100 shadow-sm p-8 md:p-10 lg:p-12">
+              <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
                 {/* Rodrigues — Left */}
-                <div className="lg:col-span-2 flex flex-col items-center text-center">
+                <div className="flex gap-5">
                   {/* Photo */}
-                  <div className="relative mb-5">
-                    <div className="w-36 h-36 md:w-44 md:h-44 rounded-2xl overflow-hidden shadow-xl ring-4 ring-white">
-                      <img
-                        src={rodriguesPortrait}
-                        alt="Rodrigues Teixeira"
-                        className="w-full h-full object-cover object-center"
-                      />
-                    </div>
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-indigo-600 text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow-lg whitespace-nowrap">
-                      Cofundador
+                  <div className="shrink-0">
+                    <div className="relative">
+                      <div className="w-32 h-40 md:w-36 md:h-44 rounded-2xl overflow-hidden shadow-lg">
+                        <img
+                          src={rodriguesPortrait}
+                          alt="Rodrigues Teixeira"
+                          className="w-full h-full object-cover"
+                          style={{ objectPosition: "50% 20%" }}
+                        />
+                      </div>
+                      <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-indigo-600 text-white text-[9px] font-bold uppercase tracking-wider rounded-full shadow-md whitespace-nowrap">
+                        Cofundador
+                      </div>
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-0.5">
-                    Rodrigues Teixeira
-                  </h3>
-                  <p className="text-sm text-indigo-600 font-medium mb-4">
-                    Vendas & Tecnologia
-                  </p>
+                  {/* Info */}
+                  <div className="pt-1">
+                    <h3 className="text-xl font-bold text-gray-900 leading-tight">
+                      Rodrigues Teixeira
+                    </h3>
+                    <p className="text-sm text-indigo-600 font-medium mb-3">
+                      Vendas & Tecnologia
+                    </p>
 
-                  <p className="text-sm text-gray-500 leading-relaxed mb-5 max-w-xs">
-                    Conecta estratégia comercial e inovação digital, garantindo
-                    suporte técnico e comercial para resultados reais.
-                  </p>
+                    <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                      Conecta estratégia comercial e inovação digital,
+                      garantindo suporte técnico e comercial para resultados
+                      reais.
+                    </p>
 
-                  {/* Skills */}
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {[
-                      { icon: ShoppingCart, label: "Vendas" },
-                      { icon: Monitor, label: "Tecnologia" },
-                      { icon: Rocket, label: "Inovação" },
-                    ].map((skill) => (
-                      <span
-                        key={skill.label}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full text-xs font-medium text-gray-600 shadow-sm border border-gray-100"
-                      >
-                        <skill.icon className="w-3 h-3 text-indigo-500" />
-                        {skill.label}
-                      </span>
-                    ))}
-                  </div>
+                    {/* Skills */}
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                      {[
+                        { icon: ShoppingCart, label: "Vendas" },
+                        { icon: Monitor, label: "Tecnologia" },
+                        { icon: Rocket, label: "Inovação" },
+                      ].map((skill) => (
+                        <span
+                          key={skill.label}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 bg-white rounded-full text-[11px] font-medium text-gray-600 border border-gray-100"
+                        >
+                          <skill.icon className="w-3 h-3 text-indigo-500" />
+                          {skill.label}
+                        </span>
+                      ))}
+                    </div>
 
-                  {/* Quote */}
-                  <div className="mt-5 pt-5 border-t border-gray-200/60 w-full">
-                    <blockquote className="flex items-center justify-center gap-2">
-                      <Quote className="w-3.5 h-3.5 text-indigo-300 shrink-0" />
-                      <p className="text-xs italic text-gray-400">
+                    {/* Quote */}
+                    <blockquote className="flex items-start gap-2 pt-4 border-t border-gray-200/60">
+                      <Quote className="w-3.5 h-3.5 text-indigo-300 shrink-0 mt-0.5" />
+                      <p className="text-xs italic text-gray-400 leading-relaxed">
                         "Tecnologia é o meio, mas são as pessoas que transformam
                         resultados."
                       </p>
@@ -135,20 +140,14 @@ export const TeamSection = () => {
                   </div>
                 </div>
 
-                {/* Divider */}
-                <div className="hidden lg:flex justify-center">
-                  <div className="w-px h-64 bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
-                </div>
-                <div className="lg:hidden w-full h-px bg-gray-200" />
-
                 {/* Consultants — Right */}
-                <div className="lg:col-span-2">
+                <div className="relative lg:pl-10 lg:before:absolute lg:before:left-0 lg:before:top-2 lg:before:bottom-2 lg:before:w-px lg:before:bg-gradient-to-b lg:before:from-transparent lg:before:via-gray-200 lg:before:to-transparent">
                   <div className="flex items-center justify-between mb-5">
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-0.5">
+                      <h3 className="text-lg font-bold text-gray-900 leading-tight">
                         Consultores Associados
                       </h3>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-xs text-gray-400 mt-0.5">
                         Especialistas sob demanda
                       </p>
                     </div>
@@ -169,7 +168,7 @@ export const TeamSection = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-2.5">
                     {consultantAreas.map((area, index) => (
                       <motion.div
                         key={area.area}
@@ -179,7 +178,7 @@ export const TeamSection = () => {
                         transition={{ delay: 0.2 + index * 0.06 }}
                         className="group"
                       >
-                        <div className="flex items-center gap-3.5 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all">
+                        <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border border-gray-100 hover:shadow-md hover:border-gray-200 transition-all">
                           <div
                             className={`w-9 h-9 rounded-lg bg-gradient-to-br ${area.gradient} flex items-center justify-center shadow-sm shrink-0 group-hover:scale-105 transition-transform`}
                           >
@@ -189,7 +188,7 @@ export const TeamSection = () => {
                             <h4 className="font-semibold text-gray-900 text-sm leading-tight">
                               {area.area}
                             </h4>
-                            <p className="text-[11px] text-gray-400 leading-tight mt-0.5 truncate">
+                            <p className="text-[11px] text-gray-400 leading-tight mt-0.5">
                               {area.description}
                             </p>
                           </div>
