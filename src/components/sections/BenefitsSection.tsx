@@ -8,6 +8,7 @@ import {
   Repeat,
   Heart,
   Compass,
+  Lightbulb,
 } from "lucide-react";
 
 const benefits = [
@@ -35,6 +36,11 @@ const benefits = [
     icon: Heart,
     title: "A cultura ganha força",
     description: "Profissionais de alto desempenho escolhem ambientes com lógica, transparência e coerência. A retenção cresce pelo sentido.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Descoberta de novas receitas",
+    description: "Novas fontes de receita surgem quando a equipe tem clareza e autonomia para enxergar oportunidades que antes passavam despercebidas.",
   },
 ];
 
