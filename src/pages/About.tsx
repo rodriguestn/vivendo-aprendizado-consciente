@@ -22,6 +22,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/common/SEO";
 import { CalinkaOrbital } from "@/components/about/CalinkaOrbital";
 import { TeamSection } from "@/components/about/TeamSection";
+import { WHATSAPP_URL } from "@/constants/whatsapp";
 import calinkaPortrait from "@/assets/calinka-portrait.png";
 
 const About = () => {
@@ -605,12 +606,14 @@ const About = () => {
                   Conhecer o Blau Mapa
                   <ArrowRight className="w-5 h-5" />
                 </Link>
-                <Link
-                  to="/#contato"
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-full hover:bg-white/20 transition-all border border-white/20 text-lg"
                 >
                   Falar com a Blau
-                </Link>
+                </a>
               </div>
 
               {/* Trust badges */}

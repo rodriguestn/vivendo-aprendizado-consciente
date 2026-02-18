@@ -1,0 +1,1 @@
+export const WHATSAPP_URL = "https://wa.me/5527996656233?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20melhor%20os%20servi%C3%A7os%20da%20blauconsultoria.com.br.%20Vi%20que%20voc%C3%AAs%20podem%20me%20ajudar%20a%20avan%C3%A7ar%20nos%20meus%20projetos%20e%20adoraria%20saber%20como%20podemos%20come%C3%A7ar";

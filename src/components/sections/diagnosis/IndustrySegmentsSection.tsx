@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { WHATSAPP_URL } from "@/constants/whatsapp";
 import {
   Code,
   Factory,
@@ -460,13 +461,16 @@ export const IndustrySegmentsSection = () => {
           <p className="text-lg text-muted-foreground mb-6">
             Não encontrou seu segmento? O Blau Mapa é adaptável a qualquer setor.
           </p>
-          <motion.button
-            className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white font-semibold rounded-full shadow-xl transition-all duration-300"
+          <motion.a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white font-semibold rounded-full shadow-xl transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Falar com um Especialista
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

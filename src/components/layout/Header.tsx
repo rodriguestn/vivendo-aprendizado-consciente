@@ -4,6 +4,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router-dom";
 import logoBlau from "@/assets/logo-blau.png";
+import { WHATSAPP_URL } from "@/constants/whatsapp";
 
 const navItems = [
   { label: "Educação Corporativa", href: "#educacao-corporativa" },
@@ -167,11 +168,13 @@ export const Header = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <Button
-                  onClick={() => handleNavigation("#contato")}
+                  asChild
                   className="group bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-full font-medium text-sm shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
                 >
-                  <span>Falar com a Blau</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    <span>Falar com a Blau</span>
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
+                  </a>
                 </Button>
               </motion.div>
             </div>
@@ -294,11 +297,13 @@ export const Header = () => {
                   className="w-full pt-4"
                 >
                   <Button
-                    onClick={() => handleNavigation("#contato")}
+                    asChild
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 rounded-full font-medium text-lg"
                   >
-                    Falar com a Blau
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                      Falar com a Blau
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
                   </Button>
                 </motion.div>
               </div>

@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Mail, Phone, Calendar, MapPin, Sparkles } from "lucide-react";
+import { WHATSAPP_URL } from "@/constants/whatsapp";
 
 export const DiagnosisCTASection = () => {
   const ref = useRef(null);
@@ -11,19 +12,22 @@ export const DiagnosisCTASection = () => {
       icon: Mail,
       title: "E-mail",
       description: "contato@blauconsultoria.com.br",
-      action: "Enviar mensagem"
+      action: "Enviar mensagem",
+      href: "mailto:contato@blauconsultoria.com.br"
     },
     {
       icon: Phone,
       title: "WhatsApp",
       description: "Resposta em até 2 horas",
-      action: "Iniciar conversa"
+      action: "Iniciar conversa",
+      href: WHATSAPP_URL
     },
     {
       icon: Calendar,
       title: "Agendar Reunião",
       description: "30 min de consultoria gratuita",
-      action: "Escolher horário"
+      action: "Escolher horário",
+      href: WHATSAPP_URL
     }
   ];
 
@@ -99,7 +103,10 @@ export const DiagnosisCTASection = () => {
           </p>
 
           {/* Main CTA Button */}
-          <motion.button
+          <motion.a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -110,7 +117,7 @@ export const DiagnosisCTASection = () => {
             <Calendar className="w-6 h-6" />
             Agendar Conversa Estratégica Gratuita
             <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-          </motion.button>
+          </motion.a>
 
           <p className="text-sm text-white/70 mt-4">
             Sem compromisso • 30 minutos • 100% focado no seu negócio
@@ -128,13 +135,16 @@ export const DiagnosisCTASection = () => {
             const Icon = method.icon;
 
             return (
-              <motion.div
+              <motion.a
                 key={index}
+                href={method.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 cursor-pointer group"
+                className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 cursor-pointer group block"
               >
                 <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-400 transition-colors duration-300">
                   <Icon className="w-7 h-7 text-white" />
@@ -145,7 +155,7 @@ export const DiagnosisCTASection = () => {
                   {method.action}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </motion.div>
+              </motion.a>
             );
           })}
         </motion.div>

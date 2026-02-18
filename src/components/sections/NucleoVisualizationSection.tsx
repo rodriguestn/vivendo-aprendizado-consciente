@@ -21,6 +21,7 @@ import {
   Link2,
   X,
 } from "lucide-react";
+import { WHATSAPP_URL } from "@/constants/whatsapp";
 
 const pillars = [
   {
@@ -949,16 +950,15 @@ export const NucleoVisualizationSection = () => {
             Empresas que aprendem primeiro, lideram.
           </p>
 
-          <button
-            onClick={() => {
-              const element = document.querySelector("#contato");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
           >
             Quero implementar o Núcleo
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

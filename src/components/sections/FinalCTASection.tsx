@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, GraduationCap, Users, TrendingUp, Sparkles, Check, Zap } from "lucide-react";
+import { WHATSAPP_URL } from "@/constants/whatsapp";
 
 export const FinalCTASection = () => {
   const ref = useRef(null);
@@ -163,7 +164,10 @@ export const FinalCTASection = () => {
             transition={{ duration: 0.8, delay: 1 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <motion.button
+            <motion.a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group px-10 py-5 bg-accent hover:bg-accent-hover text-white font-bold text-lg rounded-full shadow-2xl flex items-center justify-center gap-3 transition-all duration-300"
               whileHover={{ scale: 1.05, boxShadow: "0 25px 50px rgba(0,0,0,0.3)" }}
               whileTap={{ scale: 0.95 }}
@@ -171,7 +175,7 @@ export const FinalCTASection = () => {
               <GraduationCap className="w-6 h-6" />
               Transformar minha empresa
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-            </motion.button>
+            </motion.a>
 
             <motion.button
               className="px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 text-white font-bold text-lg rounded-full transition-all duration-300"

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowUp } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logoBlau from "@/assets/logo-blau.png";
+import { WHATSAPP_URL } from "@/constants/whatsapp";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -88,11 +89,9 @@ export const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              href="#contato"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavigation("#contato");
-              }}
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 text-primary-foreground text-lg font-medium hover:opacity-80 transition-opacity"
             >
               <span>Iniciar conversa</span>

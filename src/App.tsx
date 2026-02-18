@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WhatsAppFloat } from "@/components/common/WhatsAppFloat";
 
 const Index = lazy(() => import("./pages/Index"));
 const Diagnosis = lazy(() => import("./pages/Diagnosis"));
@@ -34,6 +35,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <WhatsAppFloat />
         </Suspense>
       </BrowserRouter>
     </TooltipProvider>
