@@ -1,6 +1,22 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Code, Factory, ShoppingCart, Building2, Heart, CheckCircle2 } from "lucide-react";
+import {
+  Code,
+  Factory,
+  ShoppingCart,
+  Building2,
+  Heart,
+  CheckCircle2,
+  GraduationCap,
+  Truck,
+  Wheat,
+  Utensils,
+  HardHat,
+  Scale,
+  Landmark,
+  Wrench,
+  Briefcase,
+} from "lucide-react";
 
 export const IndustrySegmentsSection = () => {
   const ref = useRef(null);
@@ -16,16 +32,16 @@ export const IndustrySegmentsSection = () => {
       borderColor: "border-blue-200",
       iconBg: "bg-blue-500",
       problems: [
+        "Conhecimento crítico concentrado em poucos profissionais",
+        "Alta rotatividade e perda de capital intelectual",
         "Equipes técnicas sem foco em resultados de negócio",
-        "Dificuldade em comunicar valor técnico para clientes",
-        "Alta rotatividade de talentos especializados",
-        "Falta de processos comerciais estruturados",
-        "Conhecimento concentrado em poucos profissionais"
+        "Onboarding lento e falta de padronização",
+        "Dificuldade em escalar conhecimento entre times"
       ],
       solutions: [
-        "Cultura de aprendizado contínuo e compartilhamento",
-        "Estratégia de marketing técnico e educacional",
-        "Processos de retenção e desenvolvimento de talentos"
+        "Núcleo de educação que sistematiza e distribui conhecimento técnico",
+        "Formação de multiplicadores internos para retenção de capital intelectual",
+        "Programas de desenvolvimento que conectam habilidades técnicas a resultados de negócio"
       ]
     },
     {
@@ -37,15 +53,15 @@ export const IndustrySegmentsSection = () => {
       iconBg: "bg-orange-500",
       problems: [
         "Resistência à mudança e inovação no chão de fábrica",
-        "Dificuldade em digitalizar processos tradicionais",
-        "Falta de capacitação técnica atualizada",
-        "Gestão comercial desconectada da produção",
-        "Baixa visibilidade da marca no mercado digital"
+        "Processos que envelhecem sem atualização contínua",
+        "Gestores operacionais sem preparo para liderança",
+        "Desconexão entre operação, gestão e estratégia",
+        "Dificuldade em implantar novas formas de trabalho"
       ],
       solutions: [
-        "Programas de educação corporativa para modernização",
-        "Estratégia de presença digital B2B",
-        "Alinhamento entre produção, comercial e marketing"
+        "Educação corporativa que moderniza a cultura operacional",
+        "Formação de lideranças no chão de fábrica com visão estratégica",
+        "Alinhamento entre produção, gestão e planejamento através de aprendizagem integrada"
       ]
     },
     {
@@ -57,22 +73,15 @@ export const IndustrySegmentsSection = () => {
       iconBg: "bg-green-500",
       problems: [
         "Equipe de vendas sem treinamento estruturado",
-        "Baixo engajamento em canais digitais",
-        "Dificuldade em converter visitantes em clientes",
-        "Falta de estratégia omnichannel integrada",
-        "Alto custo de aquisição de clientes (CAC)",
-        "Gestão de estoque desalinhada com demanda",
-        "Baixa fidelização e retenção de clientes",
-        "Experiência do cliente inconsistente entre canais",
-        "Dificuldade em competir com grandes redes",
-        "Falta de uso de dados para decisões comerciais"
+        "Alta rotatividade e custo de recontratação",
+        "Atendimento inconsistente entre canais e lojas",
+        "Falta de cultura de aprendizado contínuo",
+        "Dificuldade em escalar padrões de qualidade"
       ],
       solutions: [
-        "Capacitação de equipes em vendas consultivas",
-        "Estratégia de ferramentas digitais com foco em conversão",
-        "Processos de vendas otimizados e mensuráveis",
-        "Programas de fidelização e experiência do cliente",
-        "Inteligência comercial baseada em dados"
+        "Núcleo educacional que padroniza e eleva a qualidade do atendimento",
+        "Capacitação em vendas consultivas com multiplicadores internos",
+        "Sistema de aprendizagem contínua que reduz turnover e eleva performance"
       ]
     },
     {
@@ -83,16 +92,16 @@ export const IndustrySegmentsSection = () => {
       borderColor: "border-purple-200",
       iconBg: "bg-purple-500",
       problems: [
-        "Equipes comerciais com baixa performance",
-        "Dificuldade em gerar confiança digital",
-        "Processos de vendas longos e complexos",
-        "Falta de educação financeira para clientes",
-        "Comunicação técnica demais para o público"
+        "Equipes comerciais com baixa performance consultiva",
+        "Comunicação técnica demais para o público",
+        "Processos de vendas longos e sem padronização",
+        "Dificuldade em gerar confiança e autoridade",
+        "Compliance e regulamentações que exigem atualização constante"
       ],
       solutions: [
-        "Educação corporativa focada em vendas consultivas",
-        "Marketing de conteúdo educacional e autoridade",
-        "Otimização de funil de vendas e conversão"
+        "Educação corporativa focada em vendas consultivas e humanizadas",
+        "Núcleo de aprendizagem que mantém equipes atualizadas em compliance",
+        "Formação de lideranças que traduzem complexidade em clareza para o cliente"
       ]
     },
     {
@@ -103,16 +112,196 @@ export const IndustrySegmentsSection = () => {
       borderColor: "border-teal-200",
       iconBg: "bg-teal-500",
       problems: [
-        "Equipe clínica sem visão de gestão",
-        "Baixa captação de pacientes/clientes",
-        "Dificuldade em construir presença digital confiável",
+        "Equipe clínica sem visão de gestão e negócio",
         "Falta de processos de atendimento padronizados",
-        "Comunicação inadequada com o público-alvo"
+        "Baixa retenção de profissionais qualificados",
+        "Dificuldade em escalar qualidade do cuidado",
+        "Lideranças clínicas sem preparo para gestão de pessoas"
       ],
       solutions: [
-        "Desenvolvimento de lideranças clínicas e gestoras",
-        "Estratégia de marketing em saúde (respeitando normas)",
-        "Processos comerciais éticos e eficientes"
+        "Desenvolvimento de lideranças clínicas com visão estratégica e humana",
+        "Núcleo educacional que padroniza protocolos e eleva a qualidade do cuidado",
+        "Formação de multiplicadores que preservam e disseminam conhecimento clínico"
+      ]
+    },
+    {
+      icon: GraduationCap,
+      title: "Educação e EdTechs",
+      color: "from-indigo-500 to-blue-600",
+      bgColor: "bg-indigo-50",
+      borderColor: "border-indigo-200",
+      iconBg: "bg-indigo-500",
+      problems: [
+        "Corpo docente desatualizado em metodologias ativas",
+        "Desconexão entre prática pedagógica e estratégia institucional",
+        "Dificuldade em reter e desenvolver talentos educacionais",
+        "Falta de indicadores para mensurar impacto educacional",
+        "Resistência à inovação pedagógica"
+      ],
+      solutions: [
+        "Formação continuada de educadores em metodologias contemporâneas",
+        "Alinhamento entre projeto pedagógico e objetivos estratégicos",
+        "Sistema de mensuração de impacto educacional com indicadores claros"
+      ]
+    },
+    {
+      icon: Truck,
+      title: "Logística e Transporte",
+      color: "from-amber-500 to-orange-600",
+      bgColor: "bg-amber-50",
+      borderColor: "border-amber-200",
+      iconBg: "bg-amber-500",
+      problems: [
+        "Operação dependente de poucos gestores experientes",
+        "Alta rotatividade de motoristas e operadores",
+        "Dificuldade em padronizar processos em múltiplas bases",
+        "Falta de cultura de segurança e melhoria contínua",
+        "Conhecimento operacional não documentado nem replicável"
+      ],
+      solutions: [
+        "Núcleo que sistematiza conhecimento operacional e reduz dependência",
+        "Formação de líderes operacionais como multiplicadores de boas práticas",
+        "Programa de educação que fortalece cultura de segurança e padronização"
+      ]
+    },
+    {
+      icon: Wheat,
+      title: "Agronegócio",
+      color: "from-lime-600 to-green-700",
+      bgColor: "bg-lime-50",
+      borderColor: "border-lime-200",
+      iconBg: "bg-lime-600",
+      problems: [
+        "Gestores de campo sem formação em liderança de pessoas",
+        "Sazonalidade que dificulta programas de capacitação",
+        "Conhecimento técnico que se perde com turnover",
+        "Desafio de modernizar cultura em operações tradicionais",
+        "Dificuldade em atrair e reter jovens talentos"
+      ],
+      solutions: [
+        "Programas de liderança adaptados à realidade do campo",
+        "Sistema de preservação e disseminação de conhecimento técnico-agrícola",
+        "Educação corporativa que atrai talentos e moderniza a cultura organizacional"
+      ]
+    },
+    {
+      icon: Utensils,
+      title: "Alimentação e Food Service",
+      color: "from-rose-500 to-pink-600",
+      bgColor: "bg-rose-50",
+      borderColor: "border-rose-200",
+      iconBg: "bg-rose-500",
+      problems: [
+        "Altíssima rotatividade de equipe operacional",
+        "Dificuldade em manter padrão de qualidade entre unidades",
+        "Gestores promovidos sem preparo para liderança",
+        "Falta de processos de integração e treinamento estruturados",
+        "Cultura organizacional fraca e fragmentada"
+      ],
+      solutions: [
+        "Núcleo educacional que reduz turnover através de desenvolvimento e pertencimento",
+        "Sistema de padronização e replicação de boas práticas entre unidades",
+        "Formação de gestores operacionais em liderança humanizada e estratégica"
+      ]
+    },
+    {
+      icon: HardHat,
+      title: "Construção Civil e Engenharia",
+      color: "from-yellow-600 to-amber-700",
+      bgColor: "bg-yellow-50",
+      borderColor: "border-yellow-200",
+      iconBg: "bg-yellow-600",
+      problems: [
+        "Projetos dependentes de profissionais-chave insubstituíveis",
+        "Falta de padronização entre equipes e obras",
+        "Dificuldade em desenvolver lideranças de campo",
+        "Conhecimento técnico que não se transfere entre projetos",
+        "Cultura de segurança que não permeia todos os níveis"
+      ],
+      solutions: [
+        "Formação de multiplicadores técnicos que distribuem conhecimento entre projetos",
+        "Programa de liderança para engenheiros e mestres de obra",
+        "Núcleo de educação que preserva capital intelectual e fortalece cultura de segurança"
+      ]
+    },
+    {
+      icon: Scale,
+      title: "Jurídico e Consultoria",
+      color: "from-slate-600 to-gray-700",
+      bgColor: "bg-slate-50",
+      borderColor: "border-slate-200",
+      iconBg: "bg-slate-600",
+      problems: [
+        "Sócios sobrecarregados por falta de autonomia da equipe",
+        "Dificuldade em desenvolver visão de negócio em profissionais técnicos",
+        "Conhecimento concentrado nos fundadores",
+        "Falta de processos de gestão e desenvolvimento de pessoas",
+        "Crescimento limitado pela capacidade individual dos líderes"
+      ],
+      solutions: [
+        "Educação que desenvolve visão estratégica em profissionais técnicos",
+        "Sistema de distribuição de responsabilidades e autonomia progressiva",
+        "Núcleo que transforma conhecimento individual em ativo organizacional"
+      ]
+    },
+    {
+      icon: Landmark,
+      title: "Setor Público e ONGs",
+      color: "from-sky-600 to-blue-700",
+      bgColor: "bg-sky-50",
+      borderColor: "border-sky-200",
+      iconBg: "bg-sky-600",
+      problems: [
+        "Burocracia que engessa inovação e aprendizagem",
+        "Alta rotatividade por mudanças de gestão política",
+        "Falta de cultura de resultados e mensuração de impacto",
+        "Conhecimento institucional perdido a cada transição",
+        "Equipes desmotivadas e sem perspectiva de desenvolvimento"
+      ],
+      solutions: [
+        "Núcleo educacional que preserva conhecimento institucional independente de gestões",
+        "Programa de desenvolvimento que cria cultura de resultados e impacto mensurável",
+        "Formação de servidores como multiplicadores de boas práticas e inovação"
+      ]
+    },
+    {
+      icon: Wrench,
+      title: "Serviços e Manutenção",
+      color: "from-cyan-600 to-teal-700",
+      bgColor: "bg-cyan-50",
+      borderColor: "border-cyan-200",
+      iconBg: "bg-cyan-600",
+      problems: [
+        "Técnicos que executam sem entender o porquê dos processos",
+        "Dificuldade em manter qualidade com crescimento da equipe",
+        "Gestores operacionais sem preparo para liderança",
+        "Conhecimento prático que não é registrado nem replicado",
+        "Alta dependência de profissionais-chave"
+      ],
+      solutions: [
+        "Sistema de documentação e replicação de conhecimento técnico",
+        "Formação de líderes operacionais que desenvolvem suas equipes",
+        "Núcleo educacional que garante qualidade mesmo com escala"
+      ]
+    },
+    {
+      icon: Briefcase,
+      title: "Startups e Scale-ups",
+      color: "from-violet-500 to-purple-600",
+      bgColor: "bg-violet-50",
+      borderColor: "border-violet-200",
+      iconBg: "bg-violet-500",
+      problems: [
+        "Crescimento acelerado sem estrutura para absorver novos talentos",
+        "Cultura que se dilui conforme a empresa escala",
+        "Fundadores sobrecarregados como gargalo de decisões",
+        "Falta de processos de onboarding e desenvolvimento",
+        "Conhecimento estratégico que não acompanha o ritmo de crescimento"
+      ],
+      solutions: [
+        "Núcleo educacional que preserva cultura e valores durante o crescimento",
+        "Formação de lideranças que desafogam fundadores e distribuem decisão",
+        "Sistema de onboarding e desenvolvimento que escala com a empresa"
       ]
     }
   ];
