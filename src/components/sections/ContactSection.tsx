@@ -1,49 +1,23 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
-import { Send, BookOpen, Search } from "lucide-react";
+import { useRef, useEffect } from "react";
+import { Send, ArrowRight, MessageCircle } from "lucide-react";
+import { WHATSAPP_URL } from "@/constants/whatsapp";
 
 export const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const { toast } = useToast();
 
-  const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    role: "",
-    email: "",
-    phone: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (type: "diagnosis" | "nucleus") => {
-    if (!formData.name || !formData.email) {
-      toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha seu nome e email.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    toast({
-      title: "Mensagem enviada!",
-      description:
-        type === "diagnosis"
-          ? "Entraremos em contato sobre o Diagnóstico Empresarial."
-          : "Entraremos em contato sobre o Núcleo de Educação.",
-    });
-
-    setFormData({ name: "", company: "", role: "", email: "", phone: "" });
-  };
+  useEffect(() => {
+    // Load HubSpot form script
+    const script = document.createElement("script");
+    script.src = "https://js.hsforms.net/forms/embed/24357275.js";
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <section id="contato" ref={ref} className="py-24 lg:py-32 bg-gradient-to-br from-background via-secondary/30 to-background relative overflow-hidden">
@@ -98,142 +72,97 @@ export const ContactSection = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="bg-card/80 backdrop-blur-xl border border-border/50 rounded-3xl p-8 md:p-12 shadow-xl hover:shadow-2xl transition-all duration-500">
-            <div className="space-y-8">
-              <div className="grid sm:grid-cols-2 gap-6">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.3 }}
-                  className="space-y-2"
-                >
-                  <Label htmlFor="name" className="text-sm font-semibold">Nome *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    placeholder="Seu nome completo"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="h-12 rounded-xl border-2 focus:border-primary transition-all"
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.3 }}
-                  className="space-y-2"
-                >
-                  <Label htmlFor="company" className="text-sm font-semibold">Empresa</Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    placeholder="Nome da empresa"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="h-12 rounded-xl border-2 focus:border-primary transition-all"
-                  />
-                </motion.div>
-              </div>
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
+          {/* HubSpot Form */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="bg-card/80 backdrop-blur-xl border border-border/50 rounded-3xl p-8 md:p-10 shadow-xl hover:shadow-2xl transition-all duration-500">
+              <h3 className="text-xl font-bold text-foreground mb-2">Preencha o formulário</h3>
+              <p className="text-sm text-muted-foreground mb-6">
+                Deixe seus dados e entraremos em contato com você.
+              </p>
+              <div
+                className="hs-form-frame"
+                data-region="na1"
+                data-form-id="a253c78f-87a5-4878-8696-2b19f9e112f8"
+                data-portal-id="24357275"
+              />
+            </div>
+          </motion.div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 }}
-                  className="space-y-2"
-                >
-                  <Label htmlFor="role" className="text-sm font-semibold">Cargo</Label>
-                  <Input
-                    id="role"
-                    name="role"
-                    placeholder="Seu cargo"
-                    value={formData.role}
-                    onChange={handleChange}
-                    className="h-12 rounded-xl border-2 focus:border-primary transition-all"
-                  />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 }}
-                  className="space-y-2"
-                >
-                  <Label htmlFor="email" className="text-sm font-semibold">E-mail *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="seu@email.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="h-12 rounded-xl border-2 focus:border-primary transition-all"
-                  />
-                </motion.div>
-              </div>
+          {/* WhatsApp CTA */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col gap-6"
+          >
+            {/* WhatsApp Card */}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#25D366] to-[#128C7E] p-8 md:p-10 shadow-2xl">
+              {/* Decorative circles */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full" />
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-white/10 rounded-full" />
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.5 }}
-                className="space-y-2"
-              >
-                <Label htmlFor="phone" className="text-sm font-semibold">Telefone</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="(00) 00000-0000"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="h-12 rounded-xl border-2 focus:border-primary transition-all"
-                />
-              </motion.div>
-
-              <div className="grid sm:grid-cols-2 gap-4 pt-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.6 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full h-14 rounded-xl font-semibold border-2 hover:border-primary hover:text-primary transition-all"
-                    onClick={() => handleSubmit("diagnosis")}
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6">
+                  <svg
+                    className="w-9 h-9 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    <Search className="w-5 h-5" />
-                    Quero meu diagnóstico
-                  </Button>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.7 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                </div>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  Prefere conversar agora?
+                </h3>
+                <p className="text-white/90 text-lg mb-8 leading-relaxed">
+                  Tire suas dúvidas diretamente com nosso time. Atendimento rápido e personalizado.
+                </p>
+
+                <motion.a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 px-8 py-4 bg-white text-[#25D366] font-bold text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Button
-                    variant="accent"
-                    size="lg"
-                    className="w-full h-14 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all"
-                    onClick={() => handleSubmit("nucleus")}
-                  >
-                    <BookOpen className="w-5 h-5" />
-                    Quero conhecer o Núcleo
-                  </Button>
-                </motion.div>
+                  <MessageCircle className="w-6 h-6" />
+                  Conversar no WhatsApp
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.a>
+
+                <div className="flex items-center gap-3 mt-6">
+                  <div className="flex -space-x-2">
+                    <div className="w-8 h-8 rounded-full bg-white/30 border-2 border-white/50" />
+                    <div className="w-8 h-8 rounded-full bg-white/20 border-2 border-white/50" />
+                    <div className="w-8 h-8 rounded-full bg-white/25 border-2 border-white/50" />
+                  </div>
+                  <p className="text-white/80 text-sm">
+                    Resposta em até 2 horas
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+
+            {/* Informações extras */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl p-6 text-center shadow-lg">
+                <p className="text-3xl font-bold text-primary mb-1">30 min</p>
+                <p className="text-sm text-muted-foreground">Consultoria gratuita</p>
+              </div>
+              <div className="bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl p-6 text-center shadow-lg">
+                <p className="text-3xl font-bold text-primary mb-1">100%</p>
+                <p className="text-sm text-muted-foreground">Sem compromisso</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
