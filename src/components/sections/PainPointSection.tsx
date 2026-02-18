@@ -1,20 +1,28 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { AlertCircle, Users, Target, Brain } from "lucide-react";
+import { AlertCircle, Users, Target, Brain, TrendingDown, Cog } from "lucide-react";
 
 const painPoints = [
   {
     icon: Brain,
-    title: "Conhecimento fragmentado e pouco aplicado",
+    title: "Ausência de estrutura educacional",
+    description: "Cursos isolados que desaparecem na rotina. Falta um sistema onde o aprendizado tenha rumo, ciclo e propósito.",
   },
   {
     icon: Target,
-    title: "Lideranças sobrecarregadas por decisões operacionais",
+    title: "Lideranças sobrecarregadas e decisões centralizadas",
+    description: "Sem multiplicadores de conhecimento, gestores acumulam funções e decisões. A empresa trava antes de perceber onde está travando.",
   },
   {
-    icon: Users,
-    title: "Baixa autonomia e protagonismo das equipes",
+    icon: TrendingDown,
+    title: "Processos que envelhecem e talentos que vão embora",
+    description: "Conhecimento crítico desaparece com cada desligamento. A operação fica pesada, lenta e frágil.",
+  },
+  {
+    icon: Cog,
+    title: "Empresas que sobrevivem em vez de crescer",
+    description: "Cada gestor cria seu próprio jeito, cada time opera em seu ritmo. A consequência: uma empresa que não escala.",
   },
 ];
 
@@ -38,18 +46,19 @@ export const PainPointSection = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-6">
-            Sua empresa até treina. Mas será que{" "}
-            <span className="text-primary">aprende de verdade?</span>
+            No fundo, o que falta não são{" "}
+            <span className="text-primary">cursos</span>. Falta{" "}
+            <span className="text-primary">estrutura.</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Muitas empresas investem em treinamentos pontuais, mas não
-            desenvolvem a capacidade de aprender continuamente. O conhecimento
-            não se transforma em prática, as decisões permanecem centralizadas e
-            as equipes seguem dependentes.
+            O problema é que a maioria das organizações ainda funciona como se
+            bastasse contratar pessoas boas e esperar que tudo aconteça sozinho.
+            Sem um núcleo de educação que funcione como coração da organização,
+            mesmo os melhores talentos acabam presos numa rotina de sobrevivência.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16">
           {painPoints.map((point, index) => (
             <motion.div
               key={index}
@@ -61,8 +70,11 @@ export const PainPointSection = () => {
               <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
                 <point.icon className="w-7 h-7 text-primary" />
               </div>
-              <p className="text-lg font-semibold text-foreground leading-snug">
+              <p className="text-lg font-semibold text-foreground leading-snug mb-2">
                 {point.title}
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {point.description}
               </p>
             </motion.div>
           ))}
@@ -75,8 +87,9 @@ export const PainPointSection = () => {
           className="text-center"
         >
           <blockquote className="text-xl md:text-2xl font-serif italic text-primary max-w-2xl mx-auto">
-            "Aprender não é absorver conteúdo. É transformar comportamento,
-            pensamento e decisão."
+            "Não ter um núcleo de educação pode significar a não manutenção dos
+            processos e dificuldades na implantação de novas formas de trabalho.
+            A empresa trava — antes de perceber onde está travando."
           </blockquote>
         </motion.div>
       </div>

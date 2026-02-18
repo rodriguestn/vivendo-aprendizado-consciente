@@ -319,12 +319,12 @@ export const JourneySection = () => {
           <blockquote className="relative text-center px-8 py-6">
             <div className="absolute left-1/2 -translate-x-1/2 top-0 w-12 h-0.5 bg-gradient-to-r from-blue-400 via-amber-400 to-slate-400 rounded-full" />
             <p className="text-xl md:text-2xl font-serif italic text-gray-700 leading-relaxed mt-4">
-              "A Blau Consultoria resgata os princípios educacionais
-              fundamentais, transformando profissionais em{" "}
+              "Nada evolui sozinho. Empresas que realmente crescem entendem que
+              conhecimento precisa ser cultivado, estruturado, distribuído —{" "}
               <span className="text-primary font-semibold not-italic">
-                aprendizes conscientes
-              </span>{" "}
-              novamente."
+                vivido
+              </span>
+              ."
             </p>
           </blockquote>
         </motion.div>
@@ -349,12 +349,12 @@ export const JourneySection = () => {
                 Reversão é possível
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                É possível resgatar a curiosidade
+                É hora de parar de "tapar buracos" e construir bases sólidas
               </h3>
               <p className="text-blue-100 leading-relaxed mb-8 max-w-xl mx-auto">
-                Nossa metodologia reconecta profissionais com os princípios
-                educacionais fundamentais: curiosidade, experimentação, reflexão
-                crítica e aprendizado contínuo.
+                Se quer sair do modelo de sobrevivência e entrar no campo da
+                construção estratégica, está na hora de transformar sua empresa
+                numa máquina de aprender e crescer.
               </p>
               <motion.button
                 className="px-7 py-3.5 bg-white text-blue-700 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-2 text-sm"

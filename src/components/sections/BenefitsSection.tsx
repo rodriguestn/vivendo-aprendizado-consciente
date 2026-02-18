@@ -13,23 +13,28 @@ import {
 const benefits = [
   {
     icon: Compass,
-    title: "Lideranças que pensam estrategicamente",
+    title: "O conhecimento circula",
+    description: "As pessoas sabem o que se espera delas, compreendem como avançar e têm clareza sobre o impacto do seu trabalho.",
   },
   {
     icon: Users,
-    title: "Equipes com autonomia, responsabilidade e protagonismo",
+    title: "A autonomia cresce",
+    description: "Equipes autogerenciáveis que tomam decisões com confiança, reduzindo a dependência e a sobrecarga dos líderes.",
   },
   {
     icon: Brain,
-    title: "Decisões mais conscientes e menos reativas",
+    title: "A liderança respira",
+    description: "Gestores operam com parâmetros claros. O RH ganha musculatura técnica para tomar decisões consistentes.",
   },
   {
     icon: Repeat,
-    title: "Redução de retrabalho, ruído e dependência",
+    title: "A inovação vira prática",
+    description: "O crescimento deixa de ser esforço e vira consequência. Processos se renovam e a empresa evolui continuamente.",
   },
   {
     icon: Heart,
-    title: "Retenção de talentos pelo sentido, não pelo controle",
+    title: "A cultura ganha força",
+    description: "Profissionais de alto desempenho escolhem ambientes com lógica, transparência e coerência. A retenção cresce pelo sentido.",
   },
 ];
 
@@ -53,11 +58,12 @@ export const BenefitsSection = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
-            O que muda quando a empresa{" "}
-            <span className="text-primary">aprende de verdade</span>
+            Quando o núcleo existe,{" "}
+            <span className="text-primary">tudo muda</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Educação corporativa que gera impacto real e duradouro
+            A empresa começa a funcionar em outro ritmo. As pessoas aprendem com mais clareza,
+            os times operam com mais fluidez e a inovação aparece onde antes havia ruído.
           </p>
         </motion.div>
 
@@ -74,8 +80,11 @@ export const BenefitsSection = () => {
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <benefit.icon className="w-7 h-7 text-primary" />
                 </div>
-                <p className="text-foreground font-semibold text-lg leading-snug">
+                <p className="text-foreground font-semibold text-lg leading-snug mb-2">
                   {benefit.title}
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {benefit.description}
                 </p>
               </div>
             </motion.div>

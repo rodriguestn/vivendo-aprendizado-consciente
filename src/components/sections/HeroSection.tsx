@@ -167,7 +167,7 @@ export const HeroSection = () => {
           >
             <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-sm font-semibold text-white">
-              Transforme sua empresa em um ecossistema de aprendizagem
+              Conhecimento é o novo capital
             </span>
           </motion.div>
 
@@ -178,17 +178,16 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-8xl font-serif font-bold text-white leading-[1.1] mb-8 tracking-tight">
-              A educação que{" "}
+              Os recursos das maiores escolas de negócio{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 text-accent">multiplica</span>
+                <span className="relative z-10 text-accent">na sua empresa</span>
                 <motion.span
                   className="absolute -bottom-3 left-0 w-full h-3 bg-accent/30 rounded-full blur-sm"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                 />
-              </span>{" "}
-              resultados
+              </span>
             </h1>
           </motion.div>
 
@@ -198,8 +197,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto font-light"
           >
-            Criamos <strong className="font-semibold">Núcleos de Educação Interna</strong> que transformam colaboradores em{" "}
-            <strong className="font-semibold">protagonistas do conhecimento</strong>, gerando autonomia, inovação e crescimento sustentável
+            Implantamos <strong className="font-semibold">Núcleos de Educação Corporativa Viva</strong> que fazem o conhecimento se mover — gerando{" "}
+            <strong className="font-semibold">autonomia, cultura e crescimento</strong> de forma contínua e estratégica
           </motion.p>
 
           {/* Key Features */}
@@ -210,9 +209,9 @@ export const HeroSection = () => {
             className="flex flex-wrap justify-center gap-6 mb-12"
           >
             {[
-              { icon: BarChart3, text: "Diagnóstico profundo" },
-              { icon: GraduationCap, text: "Programa em 2 anos" },
-              { icon: Users, text: "Formação de multiplicadores" },
+              { icon: BarChart3, text: "Diagnóstico estratégico" },
+              { icon: GraduationCap, text: "Núcleo Educacional em 2 anos" },
+              { icon: Users, text: "Multiplicadores de conhecimento" },
             ].map((feature, index) => (
               <motion.div
                 key={index}
@@ -239,7 +238,7 @@ export const HeroSection = () => {
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
               whileTap={{ scale: 0.95 }}
             >
-              Conhecer a Metodologia Blau
+              Descobrir a Metodologia Blau
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
             <motion.button

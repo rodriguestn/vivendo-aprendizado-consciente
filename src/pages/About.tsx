@@ -55,23 +55,23 @@ const About = () => {
   const values = [
     {
       icon: Heart,
-      title: "Paixão por Educar",
-      description: "Acreditamos que a educação é a força mais poderosa para transformar pessoas e organizações.",
+      title: "O Ser Humano no Centro",
+      description: "As empresas já valorizaram tudo, menos o ser humano agente da função. Nós colocamos as pessoas no centro de toda estratégia.",
     },
     {
       icon: Target,
-      title: "Resultados Reais",
-      description: "Focamos em impacto mensurável. Cada programa é desenhado para gerar mudanças concretas.",
+      title: "Coerência Estratégica",
+      description: "Quando estratégia, estrutura e educação conversam entre si, a empresa se torna mais justa, mais leve e mais competitiva.",
     },
     {
       icon: Users,
-      title: "Pessoas em Primeiro Lugar",
-      description: "Por trás de cada empresa, existem pessoas. Desenvolvemos talentos, não apenas processos.",
+      title: "Estruturas Que Habilitam",
+      description: "Estruturas educacionais não são neutras. Elas habilitam ou sabotam a estratégia. Construímos para habilitar.",
     },
     {
       icon: Lightbulb,
-      title: "Inovação Consciente",
-      description: "Unimos metodologias comprovadas com abordagens inovadoras, sempre com propósito.",
+      title: "Educação Como Capital",
+      description: "Conhecimento não é recurso — é capital humano em movimento. Empresas que aprendem primeiro, lideram.",
     },
   ];
 
@@ -137,16 +137,17 @@ const About = () => {
                   </span>
 
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                    Uma Educadora com{" "}
+                    Educação como{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">
-                      Missão de Transformar
+                      Infraestrutura Estratégica
                     </span>
                   </h1>
 
                   <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed">
-                    A Blau nasceu da crença de que <strong className="text-white">toda empresa pode se tornar
-                      um ambiente de aprendizado contínuo</strong>. Com mais de 15 anos dedicados à educação,
-                    nossa fundadora traz uma visão única que une pedagogia, gestão e estratégia empresarial.
+                    A Blau nasceu da crença de que <strong className="text-white">educação não são cursos
+                      e treinamentos técnicos</strong>. É o modo como a organização traduz sua estratégia
+                    em lógica operacional — produzindo conhecimento, distribuindo responsabilidades
+                    e cultivando o maior patrimônio de uma empresa: o ser humano.
                   </p>
 
                   <div className="flex flex-wrap gap-4">
@@ -180,9 +181,9 @@ const About = () => {
                     </div>
 
                     <blockquote className="text-xl md:text-2xl text-white font-light italic leading-relaxed mb-6">
-                      "Educação corporativa não é sobre treinar pessoas. É sobre despertar o potencial
-                      que já existe em cada colaborador e criar uma cultura onde o aprendizado
-                      acontece naturalmente."
+                      "A estratégia é o hardware que sustenta o funcionamento do negócio.
+                      A Educação é o software que dá precisão a esse hardware. Quando esses
+                      elementos conversam, a empresa ganha vida."
                     </blockquote>
 
                     <div className="flex items-center gap-4">
@@ -285,15 +286,16 @@ const About = () => {
 
                     <p className="text-gray-600 leading-relaxed mb-6">
                       Em <strong className="text-gray-900">2022, a Blau Consultoria nasceu</strong> com uma missão clara:
-                      levar a excelência da educação para o mundo corporativo. Não como treinamentos
-                      pontuais, mas como uma <strong className="text-gray-900">transformação cultural</strong> que
-                      forma núcleos educacionais dentro das próprias organizações.
+                      levar a lógica das maiores escolas de negócio para dentro das empresas. Não como
+                      treinamentos pontuais, mas como <strong className="text-gray-900">infraestrutura estratégica</strong> —
+                      um núcleo vivo que pulsa cultura, autonomia, inovação e consistência.
                     </p>
 
                     <p className="text-gray-600 leading-relaxed">
                       Hoje, a Blau atua como <strong className="text-gray-900">mentora de startups no programa Seedes</strong>,
-                      do Governo do Espírito Santo, e continua sua missão de provar que investir em
-                      educação corporativa é o caminho mais inteligente para o crescimento sustentável.
+                      do Governo do ES, e continua provando que quando educação se alinha à estratégia,
+                      a empresa alcança um patamar de funcionamento com alta eficiência — mais justa,
+                      mais leve e mais competitiva.
                     </p>
                   </div>
                 </div>
@@ -453,11 +455,12 @@ const About = () => {
                 Nossos Valores
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                O Que Nos Move
+                Nosso Manifesto
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Princípios que guiam cada projeto, cada consultoria e cada relacionamento
-                que construímos com nossos clientes.
+                Toda empresa deseja executar sua estratégia com clareza, velocidade e precisão.
+                O desafio surge na travessia entre intenção e prática — e nessa travessia, um fator
+                se torna decisivo: a coerência entre estratégia, estrutura e educação.
               </p>
             </motion.div>
 
@@ -479,6 +482,37 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* Manifesto Essence */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto mt-16"
+            >
+              <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-amber-400/10 rounded-full blur-3xl" />
+                <div className="relative z-10">
+                  <Quote className="w-10 h-10 text-amber-400/60 mb-6" />
+                  <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-6">
+                    Quando a Educação é uma base bem construída, a empresa ganha vida: os papéis se encaixam,
+                    os níveis fazem sentido e o sistema de gestão de pessoas passa a operar com justiça e objetividade.
+                  </p>
+                  <p className="text-lg md:text-xl text-blue-100 leading-relaxed mb-6">
+                    Se não há escola — lugar de educação — surgem distorções que comprometem
+                    performance, clima e a execução estratégica. Títulos inflados, funções duplicadas,
+                    papéis indefinidos. Tudo isso gera insegurança, conflitos e uma percepção
+                    de injustiça que afeta diretamente engajamento e retenção.
+                  </p>
+                  <p className="text-lg md:text-xl text-white font-medium leading-relaxed">
+                    Profissionais de alto desempenho escolhem ambientes onde existe lógica, transparência
+                    e coerência. E empresas competitivas entendem que essa coerência não surge
+                    espontaneamente: ela é desenhada, revisada e continuamente mantida.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -552,15 +586,15 @@ const About = () => {
               className="max-w-3xl mx-auto text-center"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                Vamos Transformar Sua{" "}
+                Pronto para{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">
-                  Empresa Juntos?
+                  Construir Futuro?
                 </span>
               </h2>
 
               <p className="text-xl text-blue-100 mb-10">
-                Descubra como a Blau pode ajudar sua organização a criar uma cultura
-                de aprendizado contínuo e formar núcleos educacionais internos.
+                Se você sente que já passou da hora de parar de "apagar incêndios"
+                e começar a construir as bases do futuro com estratégia — a conversa começa aqui.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

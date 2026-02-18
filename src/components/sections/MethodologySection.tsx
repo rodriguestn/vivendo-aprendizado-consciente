@@ -8,25 +8,25 @@ const principles = [
     icon: Sparkles,
     title: "Aprendizagem Ativa",
     description:
-      "Aprender resolvendo problemas reais, não apenas consumindo conteúdo",
+      "Aprender resolvendo problemas reais, não consumindo cursos avulsos que desaparecem na rotina",
   },
   {
     icon: Users2,
     title: "Protagonismo Humano",
     description:
-      "Pessoas como agentes de mudança, não receptores passivos de informação",
+      "Pessoas como ativo estratégico — ensinar é ciência, aprender é processo, transformar é técnica",
   },
   {
     icon: Puzzle,
     title: "Integração Estratégica",
     description:
-      "Conexão direta entre aprendizagem e objetivos organizacionais",
+      "Educação como software que dá precisão ao hardware da estratégia organizacional",
   },
   {
     icon: RefreshCw,
-    title: "Ciclos de Melhoria",
+    title: "Ciclos de Evolução",
     description:
-      "Reflexão contínua e ajustes baseados em resultados mensuráveis",
+      "Estrutura, não improviso. Cultura, não coleção de treinamentos. Aprendizado contínuo, não evento isolado",
   },
 ];
 
@@ -50,18 +50,19 @@ export const MethodologySection = () => {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-6">
-              Aprendizagem ativa, protagonismo e{" "}
-              <span className="text-primary">cultura organizacional</span>
+              Não levamos treinamento. Implantamos um{" "}
+              <span className="text-primary">núcleo vivo de aprendizagem</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              A metodologia Blau é inspirada em princípios educacionais
-              contemporâneos: aprendizagem ativa, protagonismo das pessoas,
-              integração entre estratégia e prática, e ciclos contínuos de
-              reflexão e melhoria.
+              As maiores escolas de negócio do mundo têm algo em comum: elas
+              fazem do conhecimento um motor. A Blau leva esse motor para
+              dentro da sua empresa — com metodologia educacional, visão
+              estratégica e indicadores reais de impacto.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              No contexto B2B, isso significa aprender resolvendo problemas
-              reais, em colaboração, com significado e impacto.
+              Porque educação corporativa é muito mais que programas de
+              treinamento. É um sistema vivo que transforma a maneira como
+              as pessoas e a organização aprendem, se adaptam e competem.
             </p>
           </motion.div>
 

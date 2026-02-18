@@ -245,13 +245,14 @@ export const NucleoVisualizationSection = () => {
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-6">
-            O Núcleo de Educação é o{" "}
-            <span className="text-primary">coração</span> da metodologia Blau
+            O Núcleo de Educação: o{" "}
+            <span className="text-primary">coração</span> que pulsa a organização
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-            Inspirada em princípios de aprendizagem ativa e ambientes educacionais vivos,
-            a Blau transforma empresas em ecossistemas de aprendizagem contínua através de
-            6 pilares transformadores trabalhados de forma integrada.
+            Um lugar onde o conhecimento vira sistema. Um núcleo de educação que
+            funciona como o coração da organização — pulsando cultura, autonomia,
+            inovação e consistência. 6 pilares integrados que transformam a empresa
+            em um ecossistema vivo de aprendizagem.
           </p>
           <p className="text-base text-primary font-semibold">
             👇 Clique em cada pilar para descobrir problemas, soluções e resultados
@@ -943,8 +944,9 @@ export const NucleoVisualizationSection = () => {
           <HandHeart className="w-14 h-14 text-primary mx-auto mb-6" />
           <p className="text-xl md:text-2xl font-serif text-foreground max-w-3xl mx-auto mb-8">
             O objetivo não é ensinar mais. É criar uma empresa que{" "}
-            <span className="text-primary font-semibold">aprende melhor</span> — de
-            forma viva, consciente e sustentável.
+            <span className="text-primary font-semibold">aprende melhor</span> — porque
+            conhecimento não é recurso, é capital humano em movimento.
+            Empresas que aprendem primeiro, lideram.
           </p>
 
           <button

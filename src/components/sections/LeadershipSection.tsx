@@ -19,7 +19,8 @@ export const LeadershipSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground">
-            Quem sustenta essa <span className="text-primary">metodologia</span>
+            Toda empresa que aprende bem tem um{" "}
+            <span className="text-primary">professor</span> no centro
           </h2>
         </motion.div>
 
@@ -59,16 +60,18 @@ export const LeadershipSection = () => {
               <p>
                 Professora por formação e ser humana por missão, Calinka Rodor
                 atua há mais de 15 anos na interseção entre educação,
-                comportamento humano e estratégia organizacional.
+                comportamento humano e estratégia organizacional — com olhar
+                educacional, metodológico e humano.
               </p>
               <p>
-                Sua atuação vai além do conteúdo: ela estrutura ambientes onde
-                aprender se torna um processo natural, contínuo e transformador.
+                Ter um professor na estrutura corporativa faz diferença: porque
+                ensinar é uma ciência, aprender é um processo e transformar
+                conhecimento em cultura é técnica.
               </p>
               <p className="text-foreground font-medium">
-                Sua missão é criar empresas que aprendem — não apenas que
-                treinam, mas que desenvolvem a capacidade genuína de evoluir
-                através das pessoas.
+                Na Blau, unimos a profundidade de quem entende de educação,
+                a visão estratégica de negócios, tendências de inovação mapeadas
+                e a capacidade de transformar pessoas em ativo estratégico.
               </p>
             </div>
 

@@ -7,11 +7,11 @@ export const FinalCTASection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const guarantees = [
-    "Diagnóstico completo em 90-180 dias",
-    "Formação de multiplicadores internos",
-    "Programa estruturado em 2 anos",
-    "ROI mensurável e comprovado",
-    "Acompanhamento contínuo da Blau"
+    "Diagnóstico educacional, cultural e estratégico",
+    "Criação do setor de educação corporativa interna",
+    "Formação de multiplicadores de conhecimento",
+    "Programa estruturado em 2 anos com indicadores reais",
+    "Mentoria contínua com especialistas da Blau"
   ];
 
   const stats = [
@@ -72,7 +72,7 @@ export const FinalCTASection = () => {
             <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full shadow-lg">
               <Sparkles className="w-4 h-4 text-accent" />
               <span className="text-sm font-semibold text-white">
-                Transforme sua empresa em um ecossistema de aprendizagem
+                É hora de sair do ciclo de sobrevivência
               </span>
             </div>
           </motion.div>
@@ -85,13 +85,13 @@ export const FinalCTASection = () => {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight mb-6">
-              Está pronto para multiplicar
-              <br />
-              os <span className="text-accent">resultados</span> da sua empresa?
+              Sua empresa está pronta para{" "}
+              <span className="text-accent">construir futuro</span>?
             </h2>
             <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light max-w-3xl mx-auto">
-              Implemente um <strong className="font-semibold">Núcleo de Educação Interna</strong> e transforme
-              colaboradores em protagonistas do conhecimento
+              A Blau não oferece só um serviço. Oferece a chance de{" "}
+              <strong className="font-semibold">redefinir o futuro da sua organização</strong> — implantando
+              um núcleo vivo de aprendizagem capaz de sustentar seu crescimento
             </p>
           </motion.div>
 
@@ -169,7 +169,7 @@ export const FinalCTASection = () => {
               whileTap={{ scale: 0.95 }}
             >
               <GraduationCap className="w-6 h-6" />
-              Iniciar Programa de Educação Corporativa
+              Transformar minha empresa
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </motion.button>
 
@@ -203,12 +203,12 @@ export const FinalCTASection = () => {
           >
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
               <blockquote className="text-xl md:text-2xl font-serif italic text-white/90 leading-relaxed mb-4">
-                "A Blau não entregou apenas consultoria, entregou transformação. Nossa equipe
-                passou de executora para pensadora estratégica."
+                "No fim das contas, é sobre isso: cuidar das pessoas que constroem o seu futuro.
+                E fazer isso com método, sensibilidade e visão."
               </blockquote>
               <div className="text-white/70">
-                <p className="font-semibold text-white">Diretor de RH</p>
-                <p className="text-sm">Empresa de Tecnologia</p>
+                <p className="font-semibold text-white">Calinka Rodor</p>
+                <p className="text-sm">CEO, Blau Educação</p>
               </div>
             </div>
           </motion.div>
