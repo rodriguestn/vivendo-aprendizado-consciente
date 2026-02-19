@@ -42,7 +42,7 @@ export const Footer = () => {
 
   const navigationLinks = [
     { label: "Educação Corporativa", href: "#educacao-corporativa" },
-    { label: "Metodologia", href: "#metodologia" },
+    { label: "Metodologia", href: "#principios" },
     { label: "Sobre", href: "/sobre" },
     { label: "Blau Mapa", href: "/diagnostico" },
     { label: "Blog", href: "/blog" },
@@ -54,8 +54,8 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    { label: "LinkedIn", href: "#" },
-    { label: "Instagram", href: "#" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/blau-consultoria" },
+    { label: "Instagram", href: "https://www.instagram.com/blauconsultoria" },
   ];
 
   return (
@@ -188,6 +188,8 @@ export const Footer = () => {
                   <li key={link.label}>
                     <a
                       href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground text-sm transition-colors duration-200"
                     >
                       {link.label}
@@ -217,18 +219,12 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="flex items-center gap-8"
           >
-            <a
-              href="#"
-              className="text-primary-foreground/40 hover:text-primary-foreground/80 text-sm transition-colors"
-            >
+            <span className="text-primary-foreground/40 text-sm">
               Privacidade
-            </a>
-            <a
-              href="#"
-              className="text-primary-foreground/40 hover:text-primary-foreground/80 text-sm transition-colors"
-            >
+            </span>
+            <span className="text-primary-foreground/40 text-sm">
               Termos
-            </a>
+            </span>
             <motion.button
               onClick={scrollToTop}
               whileHover={{ scale: 1.1 }}

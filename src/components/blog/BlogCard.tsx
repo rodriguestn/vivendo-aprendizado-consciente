@@ -69,7 +69,7 @@ export const BlogCard = ({ post, featured = false }: BlogCardProps) => {
         </h3>
 
         {/* Excerpt */}
-        <p className={`text-gray-600 mb-3 md:mb-4 line-clamp-2 md:line-clamp-3 ${featured ? "text-sm md:text-base" : "text-xs md:text-sm"}`}>
+        <p className={`text-gray-600 mb-3 md:mb-4 line-clamp-2 md:line-clamp-3 ${featured ? "text-sm md:text-base" : "text-sm"}`}>
           {post.excerpt}
         </p>
 

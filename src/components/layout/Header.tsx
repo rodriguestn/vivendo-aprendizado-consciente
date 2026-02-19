@@ -8,7 +8,7 @@ import { WHATSAPP_URL } from "@/constants/whatsapp";
 
 const navItems = [
   { label: "Educação Corporativa", href: "#educacao-corporativa" },
-  { label: "Metodologia", href: "#metodologia" },
+  { label: "Metodologia", href: "#principios" },
   { label: "Sobre", href: "/sobre" },
   { label: "Blog", href: "/blog" },
   { label: "Contato", href: "/contato" },

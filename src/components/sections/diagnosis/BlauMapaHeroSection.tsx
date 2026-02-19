@@ -145,7 +145,7 @@ export const BlauMapaHeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-serif font-bold text-white leading-[1.1] mb-8 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-8 tracking-tight">
               <span className="relative inline-block">
                 <span className="relative z-10 text-yellow-300">Blau Mapa</span>
                 <motion.span

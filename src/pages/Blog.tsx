@@ -220,7 +220,7 @@ const Blog = () => {
                   diretamente no seu e-mail.
                 </p>
 
-                <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
                   <input
                     type="email"
                     placeholder="Seu melhor e-mail"

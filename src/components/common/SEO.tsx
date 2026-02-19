@@ -1,5 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 
+const SITE_URL = 'https://blauconsultoria.com.br';
+
 interface SEOProps {
     title: string;
     description?: string;
@@ -21,28 +23,30 @@ export const SEO = ({
 }: SEOProps) => {
     const siteTitle = 'Blau Consultoria | Educação Corporativa que Transforma';
     const fullTitle = title === 'Blau Consultoria' ? siteTitle : `${title} | Blau Consultoria`;
+    const absoluteCanonical = canonical ? `${SITE_URL}${canonical}` : undefined;
+    const absoluteImage = image.startsWith('http') ? image : `${SITE_URL}${image}`;
 
     return (
         <Helmet>
             {/* Standard metadata tags */}
             <title>{fullTitle}</title>
-            <meta name='description' content={description} />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <link rel="canonical" href={canonical} />
+            {description && <meta name='description' content={description} />}
+            {absoluteCanonical && <link rel="canonical" href={absoluteCanonical} />}
 
-            {/* Facebook tags */}
+            {/* Facebook / Open Graph */}
             <meta property="og:type" content={type} />
             <meta property="og:title" content={fullTitle} />
-            <meta property="og:description" content={description} />
+            {description && <meta property="og:description" content={description} />}
             <meta property="og:site_name" content={name} />
-            <meta property="og:image" content={image} />
+            <meta property="og:image" content={absoluteImage} />
+            {absoluteCanonical && <meta property="og:url" content={absoluteCanonical} />}
+            <meta property="og:locale" content="pt_BR" />
 
-            {/* Twitter tags */}
-            <meta name="twitter:creator" content={name} />
-            <meta name="twitter:card" content={type} />
+            {/* Twitter */}
+            <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={fullTitle} />
-            <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={image} />
+            {description && <meta name="twitter:description" content={description} />}
+            <meta name="twitter:image" content={absoluteImage} />
 
             {/* Structured Data */}
             {jsonLd && (

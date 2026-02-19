@@ -148,7 +148,7 @@ const Contact = () => {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group px-10 py-5 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-lg rounded-full shadow-2xl shadow-green-500/30 flex items-center justify-center gap-3 transition-all duration-300"
+                  className="group px-6 sm:px-10 py-4 sm:py-5 bg-[#25D366] hover:bg-[#20BD5A] text-white font-bold text-base sm:text-lg rounded-full shadow-2xl shadow-green-500/30 flex items-center justify-center gap-3 transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -162,7 +162,7 @@ const Contact = () => {
                     e.preventDefault();
                     document.querySelector("#contato")?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="px-10 py-5 bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 text-white font-bold text-lg rounded-full transition-all duration-300"
+                  className="px-6 sm:px-10 py-4 sm:py-5 bg-white/10 hover:bg-white/20 backdrop-blur-md border-2 border-white/30 text-white font-bold text-base sm:text-lg rounded-full transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -422,7 +422,7 @@ const Contact = () => {
                 { icon: BarChart3, title: "Diagnóstico inicial", desc: "Visão clara dos principais gaps e oportunidades da sua empresa" },
                 { icon: Target, title: "Plano personalizado", desc: "Recomendação do caminho ideal: Blau Mapa ou Projeto Educação" },
                 { icon: Sparkles, title: "Insights estratégicos", desc: "Benchmarks do seu setor e práticas das melhores empresas" },
-                { icon: Shield, title: "Zero compromisso", desc: "Consultoria 100% gratuita, sem nenhuma obrigação de contratar" },
+                { icon: Shield, title: "Zero compromisso", desc: "Consultoria 100% gratuita, sem nenhuma obrigação de contratação" },
               ].map((item, index) => (
                 <motion.div
                   key={index}
