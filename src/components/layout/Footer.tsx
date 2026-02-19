@@ -49,8 +49,8 @@ export const Footer = () => {
   ];
 
   const contactLinks = [
-    { label: "Depoimentos", href: "#depoimentos" },
-    { label: "Contato", href: "#contato" },
+    { label: "Depoimentos", href: "/contato#depoimentos" },
+    { label: "Contato", href: "/contato" },
   ];
 
   const socialLinks = [

@@ -7,13 +7,10 @@ import { PainPointSection } from "@/components/sections/PainPointSection";
 import { JourneySection } from "@/components/sections/JourneySection";
 import { EducationalPrinciplesSection } from "@/components/sections/EducationalPrinciplesSection";
 import { NucleoVisualizationSection } from "@/components/sections/NucleoVisualizationSection";
-import { MethodologySection } from "@/components/sections/MethodologySection";
 import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import { LeadershipSection } from "@/components/sections/LeadershipSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { BlogSection } from "@/components/sections/BlogSection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
-import { ContactSection } from "@/components/sections/ContactSection";
 
 const Index = () => {
   const organizationJsonLd = {
@@ -49,13 +46,10 @@ const Index = () => {
         <JourneySection />
         <EducationalPrinciplesSection />
         <NucleoVisualizationSection />
-        <MethodologySection />
         <BenefitsSection />
         <LeadershipSection />
-        <TestimonialsSection />
         <BlogSection />
         <FinalCTASection />
-        <ContactSection />
       </main>
       <Footer />
     </div>

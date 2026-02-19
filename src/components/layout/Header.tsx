@@ -11,7 +11,7 @@ const navItems = [
   { label: "Metodologia", href: "#metodologia" },
   { label: "Sobre", href: "/sobre" },
   { label: "Blog", href: "/blog" },
-  { label: "Contato", href: "#contato" },
+  { label: "Contato", href: "/contato" },
 ];
 
 export const Header = () => {
