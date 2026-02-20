@@ -42,6 +42,10 @@ export const SEO = ({
             {absoluteCanonical && <meta property="og:url" content={absoluteCanonical} />}
             <meta property="og:locale" content="pt_BR" />
 
+            {/* Geo / Local SEO */}
+            <meta name="geo.region" content="BR-ES" />
+            <meta name="geo.placename" content="Vitória, Espírito Santo" />
+
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={fullTitle} />

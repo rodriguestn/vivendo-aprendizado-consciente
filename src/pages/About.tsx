@@ -108,7 +108,7 @@ const About = () => {
     <div className="min-h-screen bg-white">
       <SEO
         title="Sobre a Blau | Nossa História"
-        description="Conheça a história da Blau Consultoria, fundada por Calinka Rodor. Mais de 15 anos transformando empresas através da educação corporativa."
+        description="Conheça a Blau Consultoria, fundada por Calinka Rodor em Vitória - ES. Mais de 15 anos transformando empresas no Espírito Santo e em todo o Brasil através da educação corporativa estratégica."
         canonical="/sobre"
       />
       <Header />

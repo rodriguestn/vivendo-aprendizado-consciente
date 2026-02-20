@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { ArrowUpRight, ArrowUp, MapPin } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logoBlau from "@/assets/logo-blau.png";
 import { WHATSAPP_URL } from "@/constants/whatsapp";
@@ -120,9 +120,16 @@ export const Footer = () => {
                   filter: "drop-shadow(0 0 8px rgba(255,255,255,0.9)) drop-shadow(0 0 4px rgba(255,255,255,0.8)) brightness(1.3) contrast(1.1)"
                 }}
               />
-              <p className="text-primary-foreground/60 text-sm leading-relaxed">
+              <p className="text-primary-foreground/60 text-sm leading-relaxed mb-4">
                 Transformando empresas através de educação corporativa estratégica.
               </p>
+              <div className="flex items-start gap-2 text-primary-foreground/50">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <p className="text-xs leading-relaxed">
+                  Vitória, ES — Grande Vitória<br />
+                  Projetos em todo o Brasil
+                </p>
+              </div>
             </motion.div>
 
             {/* Navigation */}

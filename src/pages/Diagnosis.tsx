@@ -13,7 +13,7 @@ const Diagnosis = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Blau Mapa | Diagnóstico"
-        description="Descubra oportunidades ocultas na sua empresa com o Blau Mapa. Um diagnóstico completo para estruturar sua educação corporativa."
+        description="Descubra oportunidades ocultas na sua empresa com o Blau Mapa. Diagnóstico estratégico completo em Vitória, Grande Vitória e todo o Espírito Santo. Educação, ferramentas digitais e vendas."
         canonical="/diagnostico"
       />
       <Header />

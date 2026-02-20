@@ -65,7 +65,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Contato | Blau Consultoria"
-        description="Agende sua consultoria estratégica gratuita. Vagas limitadas para diagnóstico empresarial este mês. Transforme a educação corporativa da sua empresa."
+        description="Agende sua consultoria estratégica gratuita em Vitória - ES. Vagas limitadas para diagnóstico empresarial. Atendimento presencial na Grande Vitória e projetos em todo o Brasil."
         canonical="/contato"
       />
       <Header />
