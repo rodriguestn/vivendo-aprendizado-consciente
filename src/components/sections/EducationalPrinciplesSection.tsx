@@ -6,7 +6,6 @@ export const EducationalPrinciplesSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredElement, setHoveredElement] = useState<string | null>(null);
-  const [hoveredFurniture, setHoveredFurniture] = useState<string | null>(null);
 
   const principles = {
     floor: {
@@ -77,13 +76,7 @@ export const EducationalPrinciplesSection = () => {
             onMouseLeave={() => setHoveredElement(null)}
             className="cursor-pointer group"
           >
-            <motion.div
-              animate={{
-                y: hoveredElement === "floor" ? -8 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-              className="relative bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border-2 border-green-200 hover:border-green-400 transition-all duration-300 hover:shadow-xl"
-            >
+            <div className="relative bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border-2 border-green-200 group-hover:border-green-400 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
               <svg viewBox="0 0 200 180" className="w-full h-auto mb-5">
                 <defs>
                   <linearGradient id="greenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -94,21 +87,16 @@ export const EducationalPrinciplesSection = () => {
 
                 {/* Steps ascending */}
                 <g transform="translate(50, 140)">
-                  {/* Step 1 */}
                   <rect x="0" y="0" width="35" height="30" fill="#d1fae5" stroke="#10b981" strokeWidth="2" rx="4" />
-                  {/* Step 2 */}
                   <rect x="40" y="-25" width="35" height="30" fill="#a7f3d0" stroke="#10b981" strokeWidth="2" rx="4" />
-                  {/* Step 3 */}
                   <rect x="80" y="-50" width="35" height="30" fill="url(#greenGrad)" stroke="#10b981" strokeWidth="2" rx="4" />
 
-                  {/* Books on top step */}
                   <g transform="translate(85, -70)">
                     <rect x="0" y="0" width="8" height="12" fill="#059669" rx="1" />
                     <rect x="10" y="0" width="8" height="12" fill="#10b981" rx="1" />
                     <rect x="20" y="0" width="8" height="12" fill="#047857" rx="1" />
                   </g>
 
-                  {/* Arrow going up */}
                   <motion.path
                     d="M 17,-30 L 17,-80"
                     stroke="#10b981"
@@ -116,7 +104,7 @@ export const EducationalPrinciplesSection = () => {
                     strokeDasharray="5,5"
                     opacity="0.6"
                     animate={{
-                      strokeDashoffset: hoveredElement === "floor" ? [0, -10] : 0,
+                      strokeDashoffset: [0, -10],
                     }}
                     transition={{
                       duration: 1,
@@ -134,7 +122,7 @@ export const EducationalPrinciplesSection = () => {
               <p className="text-green-700 text-center text-sm font-medium">
                 Acessível a Todos
               </p>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* TETO ALTO - Lights and Stars */}
@@ -146,13 +134,7 @@ export const EducationalPrinciplesSection = () => {
             onMouseLeave={() => setHoveredElement(null)}
             className="cursor-pointer group"
           >
-            <motion.div
-              animate={{
-                y: hoveredElement === "ceiling" ? -8 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-              className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-xl"
-            >
+            <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-200 group-hover:border-blue-400 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
               <svg viewBox="0 0 200 180" className="w-full h-auto mb-5">
                 <defs>
                   <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -161,23 +143,21 @@ export const EducationalPrinciplesSection = () => {
                   </linearGradient>
                 </defs>
 
-                {/* Ceiling line */}
                 <line x1="40" y1="50" x2="160" y2="50" stroke="#2452ff" strokeWidth="3" strokeLinecap="round" />
 
-                {/* Hanging lights */}
                 <g>
                   <line x1="70" y1="50" x2="70" y2="90" stroke="#2452ff" strokeWidth="2" />
                   <motion.circle
                     cx="70"
                     cy="95"
                     r="12"
-                    fill={hoveredElement === "ceiling" ? "#fbbf24" : "#2452ff"}
+                    fill="#fbbf24"
                     opacity="0.9"
                     animate={{
-                      scale: hoveredElement === "ceiling" ? [1, 1.2, 1] : 1,
+                      scale: [1, 1.15, 1],
                     }}
                     transition={{
-                      duration: 1.5,
+                      duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
@@ -187,15 +167,14 @@ export const EducationalPrinciplesSection = () => {
                     cy="95"
                     r="18"
                     fill="none"
-                    stroke={hoveredElement === "ceiling" ? "#fbbf24" : "#2452ff"}
+                    stroke="#fbbf24"
                     strokeWidth="1"
-                    opacity="0.3"
                     animate={{
-                      scale: hoveredElement === "ceiling" ? [1, 1.5, 1] : 1,
-                      opacity: hoveredElement === "ceiling" ? [0.3, 0, 0.3] : 0.3,
+                      scale: [1, 1.4, 1],
+                      opacity: [0.3, 0, 0.3],
                     }}
                     transition={{
-                      duration: 1.5,
+                      duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
@@ -206,13 +185,13 @@ export const EducationalPrinciplesSection = () => {
                     cx="130"
                     cy="85"
                     r="12"
-                    fill={hoveredElement === "ceiling" ? "#fbbf24" : "#2452ff"}
+                    fill="#fbbf24"
                     opacity="0.9"
                     animate={{
-                      scale: hoveredElement === "ceiling" ? [1, 1.2, 1] : 1,
+                      scale: [1, 1.15, 1],
                     }}
                     transition={{
-                      duration: 1.5,
+                      duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut",
                       delay: 0.3,
@@ -220,27 +199,26 @@ export const EducationalPrinciplesSection = () => {
                   />
                 </g>
 
-                {/* Stars floating above */}
                 <motion.g
                   animate={{
-                    y: hoveredElement === "ceiling" ? [0, -5, 0] : 0,
+                    y: [0, -5, 0],
                   }}
                   transition={{
-                    duration: 2,
+                    duration: 3,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
                 >
                   <path d="M 100,25 L 102,33 L 110,33 L 104,38 L 106,46 L 100,41 L 94,46 L 96,38 L 90,33 L 98,33 Z"
-                    fill={hoveredElement === "ceiling" ? "#fbbf24" : "#2452ff"}
+                    fill="#fbbf24"
                     opacity="0.7"
                   />
                   <path d="M 140,30 L 141,35 L 146,35 L 142,38 L 143,43 L 140,40 L 137,43 L 138,38 L 134,35 L 139,35 Z"
-                    fill={hoveredElement === "ceiling" ? "#fbbf24" : "#2452ff"}
+                    fill="#2452ff"
                     opacity="0.5"
                   />
                   <path d="M 60,35 L 61,40 L 66,40 L 62,43 L 63,48 L 60,45 L 57,48 L 58,43 L 54,40 L 59,40 Z"
-                    fill={hoveredElement === "ceiling" ? "#fbbf24" : "#2452ff"}
+                    fill="#2452ff"
                     opacity="0.5"
                   />
                 </motion.g>
@@ -252,7 +230,7 @@ export const EducationalPrinciplesSection = () => {
               <p className="text-blue-700 text-center text-sm font-medium">
                 Possibilidades Infinitas
               </p>
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* PAREDES AMPLAS - Wide Windows */}
@@ -264,13 +242,7 @@ export const EducationalPrinciplesSection = () => {
             onMouseLeave={() => setHoveredElement(null)}
             className="cursor-pointer group"
           >
-            <motion.div
-              animate={{
-                y: hoveredElement === "walls" ? -8 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-              className="relative bg-gradient-to-br from-purple-50 to-fuchsia-50 rounded-3xl p-8 border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 hover:shadow-xl"
-            >
+            <div className="relative bg-gradient-to-br from-purple-50 to-fuchsia-50 rounded-3xl p-8 border-2 border-purple-200 group-hover:border-purple-400 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-2">
               <svg viewBox="0 0 200 180" className="w-full h-auto mb-5">
                 <defs>
                   <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -279,33 +251,27 @@ export const EducationalPrinciplesSection = () => {
                   </linearGradient>
                 </defs>
 
-                {/* Large Window Frame */}
                 <rect
                   x="40"
                   y="40"
                   width="120"
                   height="110"
-                  fill={hoveredElement === "walls" ? "#fae8ff" : "#f3e8ff"}
+                  fill="#fae8ff"
                   stroke="#a855f7"
                   strokeWidth="3"
                   rx="8"
                 />
 
-                {/* Window panes - horizontal */}
                 <line x1="40" y1="95" x2="160" y2="95" stroke="#a855f7" strokeWidth="2" />
-
-                {/* Window panes - vertical */}
                 <line x1="100" y1="40" x2="100" y2="150" stroke="#a855f7" strokeWidth="2" />
 
-                {/* Expanding arrows showing width */}
                 <motion.g
                   animate={{
-                    x: hoveredElement === "walls" ? [-5, 0] : 0,
+                    x: [-5, 0, -5],
                   }}
                   transition={{
-                    duration: 0.8,
+                    duration: 2,
                     repeat: Infinity,
-                    repeatType: "reverse",
                     ease: "easeInOut",
                   }}
                 >
@@ -313,19 +279,17 @@ export const EducationalPrinciplesSection = () => {
                 </motion.g>
                 <motion.g
                   animate={{
-                    x: hoveredElement === "walls" ? [5, 0] : 0,
+                    x: [5, 0, 5],
                   }}
                   transition={{
-                    duration: 0.8,
+                    duration: 2,
                     repeat: Infinity,
-                    repeatType: "reverse",
                     ease: "easeInOut",
                   }}
                 >
                   <path d="M 175,95 L 165,90 L 165,100 Z" fill="#a855f7" opacity="0.6" />
                 </motion.g>
 
-                {/* Sky/view through window */}
                 <circle cx="70" cy="70" r="8" fill="#ddd6fe" opacity="0.5" />
                 <circle cx="130" cy="65" r="6" fill="#ddd6fe" opacity="0.4" />
                 <circle cx="85" cy="120" r="7" fill="#ddd6fe" opacity="0.4" />
@@ -337,44 +301,39 @@ export const EducationalPrinciplesSection = () => {
               <p className="text-purple-700 text-center text-sm font-medium">
                 Exploração Livre
               </p>
-            </motion.div>
+            </div>
           </motion.div>
 
         </div>
 
-        {/* Info Panel */}
-        <div className="max-w-4xl mx-auto mb-16">
+        {/* Info Panel — fixed height to avoid layout shifts */}
+        <div className="max-w-4xl mx-auto mb-16 min-h-[120px] flex items-center justify-center">
           <motion.div
-            initial={{ opacity: 0 }}
             animate={{ opacity: hoveredElement ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-center"
+            transition={{ duration: 0.25 }}
+            className="text-center w-full pointer-events-none"
           >
-            {hoveredElement && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-white/80 backdrop-blur-xl border-2 border-slate-200 rounded-2xl px-8 py-6 shadow-xl"
-              >
-                <div className="flex items-center justify-center gap-4 mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center shadow-md">
-                    {hoveredElement === "floor" && <TrendingUp className="w-6 h-6 text-white" />}
-                    {hoveredElement === "ceiling" && <ArrowUpRight className="w-6 h-6 text-white" />}
-                    {hoveredElement === "walls" && <Maximize2 className="w-6 h-6 text-white" />}
-                  </div>
-                  <h4 className="text-xl font-bold text-slate-900">
-                    {hoveredElement === "floor" && "Chão Baixo"}
-                    {hoveredElement === "ceiling" && "Teto Alto"}
-                    {hoveredElement === "walls" && "Paredes Amplas"}
-                  </h4>
+            <div className="bg-white/80 backdrop-blur-xl border-2 border-slate-200 rounded-2xl px-8 py-6 shadow-xl">
+              <div className="flex items-center justify-center gap-4 mb-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center shadow-md">
+                  {(hoveredElement === "floor" || !hoveredElement) && <TrendingUp className="w-6 h-6 text-white" />}
+                  {hoveredElement === "ceiling" && <ArrowUpRight className="w-6 h-6 text-white" />}
+                  {hoveredElement === "walls" && <Maximize2 className="w-6 h-6 text-white" />}
                 </div>
-                <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                  {hoveredElement === "floor" && "Ponto de entrada acessível para todos os colaboradores, independente do nível de conhecimento inicial"}
-                  {hoveredElement === "ceiling" && "Potencial ilimitado de crescimento e desenvolvimento profissional para cada colaborador"}
-                  {hoveredElement === "walls" && "Ampla liberdade para exploração, experimentação e descoberta de múltiplas soluções"}
-                </p>
-              </motion.div>
-            )}
+                <h4 className="text-xl font-bold text-slate-900">
+                  {hoveredElement === "floor" && "Chão Baixo"}
+                  {hoveredElement === "ceiling" && "Teto Alto"}
+                  {hoveredElement === "walls" && "Paredes Amplas"}
+                  {!hoveredElement && "Passe o mouse para explorar"}
+                </h4>
+              </div>
+              <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                {hoveredElement === "floor" && "Ponto de entrada acessível para todos os colaboradores, independente do nível de conhecimento inicial"}
+                {hoveredElement === "ceiling" && "Potencial ilimitado de crescimento e desenvolvimento profissional para cada colaborador"}
+                {hoveredElement === "walls" && "Ampla liberdade para exploração, experimentação e descoberta de múltiplas soluções"}
+                {!hoveredElement && "Cada princípio contribui para criar um ambiente de aprendizagem completo e transformador"}
+              </p>
+            </div>
           </motion.div>
         </div>
 
@@ -389,7 +348,7 @@ export const EducationalPrinciplesSection = () => {
           </div>
         </div>
 
-        {/* Interactive Cards */}
+        {/* Interactive Cards — hover only changes opacity/border, no height changes */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
           {Object.entries(principles).map(([key, principle], index) => {
             const Icon = principle.icon;
@@ -406,23 +365,20 @@ export const EducationalPrinciplesSection = () => {
                 className="relative group cursor-pointer"
               >
                 <div
-                  className={`bg-card border-2 rounded-3xl p-8 transition-all duration-500 h-full ${
+                  className={`bg-card border-2 rounded-3xl p-8 transition-all duration-300 h-full ${
                     isActive
                       ? "border-primary shadow-2xl -translate-y-1"
                       : "border-border shadow-lg hover:border-primary/50"
                   }`}
                 >
                   {/* Icon */}
-                  <motion.div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${principle.color} flex items-center justify-center mb-6 shadow-lg`}
-                    animate={{
-                      scale: isActive ? [1, 1.1, 1] : 1,
-                      rotate: isActive ? [0, 5, -5, 0] : 0,
-                    }}
-                    transition={{ duration: 0.6 }}
+                  <div
+                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${principle.color} flex items-center justify-center mb-6 shadow-lg transition-transform duration-300 ${
+                      isActive ? "scale-110" : ""
+                    }`}
                   >
                     <Icon className="w-8 h-8 text-white" />
-                  </motion.div>
+                  </div>
 
                   {/* Title */}
                   <h3 className="text-2xl font-bold text-foreground mb-2">
@@ -437,49 +393,36 @@ export const EducationalPrinciplesSection = () => {
                     {principle.description}
                   </p>
 
-                  {/* Benefits */}
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{
-                      height: isActive ? "auto" : 0,
-                      opacity: isActive ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
+                  {/* Benefits — always rendered, opacity controlled via CSS */}
+                  <div
+                    className={`border-t border-border pt-4 transition-opacity duration-300 ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`}
                   >
-                    <div className="border-t border-border pt-4 mt-4">
-                      <p className="text-xs font-semibold text-primary mb-3 uppercase tracking-wider">
-                        Benefícios
-                      </p>
-                      <ul className="space-y-2">
-                        {principle.benefits.map((benefit, idx) => (
-                          <motion.li
-                            key={idx}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: idx * 0.1 }}
-                            className="flex items-center gap-2 text-sm text-foreground"
-                          >
-                            <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${principle.color}`} />
-                            {benefit}
-                          </motion.li>
-                        ))}
-                      </ul>
-                    </div>
-                  </motion.div>
+                    <p className="text-xs font-semibold text-primary mb-3 uppercase tracking-wider">
+                      Benefícios
+                    </p>
+                    <ul className="space-y-2">
+                      {principle.benefits.map((benefit, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-center gap-2 text-sm text-foreground"
+                        >
+                          <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${principle.color}`} />
+                          {benefit}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
                   {/* Hover indicator */}
-                  <motion.div
-                    className="absolute top-4 right-4"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{
-                      opacity: isActive ? 1 : 0,
-                      scale: isActive ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.2 }}
+                  <div
+                    className={`absolute top-4 right-4 transition-all duration-300 ${
+                      isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                    }`}
                   >
                     <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${principle.color} animate-pulse`} />
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             );

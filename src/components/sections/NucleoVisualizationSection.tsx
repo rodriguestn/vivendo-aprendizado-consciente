@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { WHATSAPP_URL } from "@/constants/whatsapp";
 
+
 const pillars = [
   {
     icon: Brain,
@@ -501,18 +502,18 @@ export const NucleoVisualizationSection = () => {
 
                   {/* Central Hub */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" style={{ zIndex: 10 }}>
-                    {/* Brilho externo pulsante */}
+                    {/* Outer ambient glow */}
                     <motion.div
-                      className="absolute inset-0 rounded-full"
+                      className="absolute -inset-4 rounded-full"
                       animate={{
                         boxShadow: [
-                          "0 0 40px 10px rgba(36, 82, 255, 0.2)",
-                          "0 0 60px 20px rgba(36, 82, 255, 0.3)",
-                          "0 0 40px 10px rgba(36, 82, 255, 0.2)",
+                          "0 0 50px 15px rgba(36, 82, 255, 0.15), 0 0 100px 40px rgba(36, 82, 255, 0.06)",
+                          "0 0 70px 25px rgba(36, 82, 255, 0.25), 0 0 120px 50px rgba(36, 82, 255, 0.1)",
+                          "0 0 50px 15px rgba(36, 82, 255, 0.15), 0 0 100px 40px rgba(36, 82, 255, 0.06)",
                         ],
                       }}
                       transition={{
-                        duration: 3,
+                        duration: 4,
                         repeat: Infinity,
                         ease: "easeInOut",
                       }}
@@ -527,75 +528,75 @@ export const NucleoVisualizationSection = () => {
                         repeat: Infinity,
                         ease: "easeInOut",
                       }}
-                      className="w-64 h-64 rounded-full bg-gradient-to-br from-primary via-primary-light to-primary flex items-center justify-center shadow-2xl relative overflow-hidden"
+                      className="w-64 h-64 rounded-full flex items-center justify-center shadow-2xl relative overflow-hidden"
+                      style={{
+                        background: "radial-gradient(circle at 40% 35%, hsl(227 100% 67%) 0%, hsl(227 100% 57%) 40%, hsl(227 100% 42%) 100%)",
+                      }}
                     >
-                      {/* Camada de brilho animada */}
+                      {/* Camada de brilho animada — specular highlight */}
                       <motion.div
                         className="absolute inset-0 rounded-full"
                         style={{
-                          background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3) 0%, transparent 60%)",
+                          background: "radial-gradient(ellipse at 35% 25%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 35%, transparent 65%)",
                         }}
                         animate={{
-                          opacity: [0.3, 0.5, 0.3],
+                          opacity: [0.6, 0.9, 0.6],
                         }}
                         transition={{
-                          duration: 3,
+                          duration: 4,
                           repeat: Infinity,
                           ease: "easeInOut",
                         }}
                       />
 
-                      {/* Anéis concêntricos aprimorados */}
-                      <div className="absolute inset-0 rounded-full border-2 border-white/20" />
-                      <div className="absolute inset-2 rounded-full border border-white/10" />
-                      <div className="absolute inset-4 rounded-full border border-white/5" />
-
-                      {/* Partículas orbitando */}
-                      <motion.div
-                        className="absolute w-2 h-2 bg-white/60 rounded-full"
-                        style={{ top: "20%", left: "50%" }}
-                        animate={{
-                          rotate: 360,
-                        }}
-                        transition={{
-                          duration: 8,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      />
-                      <motion.div
-                        className="absolute w-1.5 h-1.5 bg-white/40 rounded-full"
-                        style={{ top: "50%", right: "15%" }}
-                        animate={{
-                          rotate: 360,
-                        }}
-                        transition={{
-                          duration: 10,
-                          repeat: Infinity,
-                          ease: "linear",
+                      {/* Bottom ambient reflection */}
+                      <div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          background: "radial-gradient(ellipse at 60% 85%, rgba(255,255,255,0.08) 0%, transparent 50%)",
                         }}
                       />
 
-                      <div className="text-center text-white px-6 relative z-10">
+                      {/* Outer ring — crisp border */}
+                      <div className="absolute inset-0 rounded-full border border-white/25" />
+                      {/* Inner ring */}
+                      <div className="absolute inset-3 rounded-full border border-white/10" />
+                      {/* Innermost subtle ring */}
+                      <div className="absolute inset-6 rounded-full border border-white/[0.04]" />
+
+                      <div className="text-center text-white px-6 relative z-10 flex flex-col items-center justify-center">
+                        {/* Icons row */}
                         <motion.div
-                          className="flex items-center justify-center gap-3 mb-3"
+                          className="flex items-center justify-center gap-3.5 mb-4"
                           animate={{
-                            scale: [1, 1.05, 1],
+                            scale: [1, 1.04, 1],
                           }}
                           transition={{
-                            duration: 2,
+                            duration: 5,
                             repeat: Infinity,
                             ease: "easeInOut",
                           }}
                         >
-                          <GraduationCap className="w-9 h-9 drop-shadow-lg" />
-                          <span className="text-2xl font-bold">×</span>
-                          <Briefcase className="w-9 h-9 drop-shadow-lg" />
+                          <div className="relative">
+                            <GraduationCap className="w-10 h-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" strokeWidth={1.8} />
+                          </div>
+                          <div className="w-px h-8 bg-white/30 rounded-full" />
+                          <div className="relative">
+                            <Briefcase className="w-10 h-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]" strokeWidth={1.8} />
+                          </div>
                         </motion.div>
-                        <h3 className="text-4xl font-bold mb-1 tracking-tight drop-shadow-lg">Blau</h3>
-                        <p className="text-xs uppercase tracking-widest opacity-90 font-medium drop-shadow">
-                          Educação Corporativa
-                        </p>
+
+                        {/* Brand name */}
+                        <h3 className="text-[2.75rem] font-serif font-bold mb-0.5 tracking-tight leading-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
+                          Blau
+                        </h3>
+                        <div className="flex items-center gap-2 mt-1">
+                          <div className="w-5 h-px bg-white/40 rounded-full" />
+                          <p className="text-[9px] uppercase tracking-[0.3em] opacity-75 font-semibold">
+                            Educação Corporativa
+                          </p>
+                          <div className="w-5 h-px bg-white/40 rounded-full" />
+                        </div>
                       </div>
                     </motion.div>
                   </div>
