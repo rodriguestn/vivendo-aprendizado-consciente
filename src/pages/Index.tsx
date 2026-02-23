@@ -42,8 +42,9 @@ const Index = () => {
       { "@type": "Country", "name": "Brasil" }
     ],
     "sameAs": [
-      "https://www.linkedin.com/company/blau-consultoria",
-      "https://www.instagram.com/blauconsultoria"
+      "https://www.linkedin.com/company/blau-consultoria-es",
+      "https://www.instagram.com/blau.consultoria/",
+      "https://www.youtube.com/@Blau_ce"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
