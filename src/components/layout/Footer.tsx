@@ -159,14 +159,23 @@ export const Footer = () => {
               viewport={{ once: true }}
               className="col-span-2 md:col-span-4 lg:col-span-4"
             >
-              <img
-                src={logoBlau}
-                alt="Blau Consultoria"
-                className="h-16 w-auto mb-5"
-                style={{
-                  filter: "invert(1) brightness(2) drop-shadow(0 0 20px rgba(36,82,255,0.5)) drop-shadow(0 0 40px rgba(36,82,255,0.25))"
-                }}
-              />
+              <div className="relative inline-block mb-6 group cursor-default">
+                {/* Soft ambient glow — sits behind the logo */}
+                <div
+                  className="absolute -inset-3 rounded-lg opacity-60 blur-xl pointer-events-none"
+                  style={{
+                    background: "radial-gradient(ellipse at 50% 50%, rgba(36,82,255,0.18) 0%, transparent 70%)",
+                  }}
+                />
+                <img
+                  src={logoBlau}
+                  alt="Blau Consultoria"
+                  className="relative h-11 w-auto"
+                  style={{
+                    filter: "invert(1) brightness(1.8) drop-shadow(0 0 8px rgba(200,215,255,0.35))"
+                  }}
+                />
+              </div>
               <p className="text-white/45 text-sm leading-relaxed mb-2 max-w-xs font-serif italic">
                 &ldquo;Só a educação pode mudar o futuro.&rdquo;
               </p>
