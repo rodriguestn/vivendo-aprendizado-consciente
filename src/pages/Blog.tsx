@@ -28,7 +28,7 @@ const Blog = () => {
   }, [searchTerm, selectedCategory]);
 
   const stats = [
-    { icon: BookOpen, value: "25+", label: "Artigos Publicados" },
+    { icon: BookOpen, value: "29+", label: "Artigos Publicados" },
     { icon: Users, value: "10k+", label: "Leitores Mensais" },
     { icon: TrendingUp, value: "95%", label: "Satisfação" },
     { icon: Lightbulb, value: "100+", label: "Insights Práticos" },

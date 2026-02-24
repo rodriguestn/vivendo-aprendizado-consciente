@@ -3573,16 +3573,19 @@ Se a resposta for não, talvez seja hora de construir algo diferente.
   }
 ];
 
+const sortByDateDesc = (a: BlogPost, b: BlogPost) =>
+  new Date(b.date).getTime() - new Date(a.date).getTime();
+
 export const getPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPosts.find(post => post.slug === slug);
 };
 
 export const getFeaturedPosts = (): BlogPost[] => {
-  return blogPosts.filter(post => post.featured);
+  return blogPosts.filter(post => post.featured).sort(sortByDateDesc);
 };
 
 export const getPostsByCategory = (category: string): BlogPost[] => {
-  return blogPosts.filter(post => post.category === category);
+  return blogPosts.filter(post => post.category === category).sort(sortByDateDesc);
 };
 
 export const getAllCategories = (): string[] => {
@@ -3591,5 +3594,5 @@ export const getAllCategories = (): string[] => {
 };
 
 export const getRecentPosts = (limit: number = 5): BlogPost[] => {
-  return blogPosts.slice(0, limit);
+  return [...blogPosts].sort(sortByDateDesc).slice(0, limit);
 };

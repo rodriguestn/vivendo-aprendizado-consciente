@@ -133,7 +133,7 @@ export const BlogSection = () => {
             <ArrowRight className="w-5 h-5" />
           </Link>
           <p className="text-gray-500 text-sm mt-4">
-            +25 artigos sobre educação corporativa e desenvolvimento
+            +29 artigos sobre educação corporativa e desenvolvimento
           </p>
         </motion.div>
       </div>
