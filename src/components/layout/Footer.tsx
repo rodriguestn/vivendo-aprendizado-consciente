@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import logoBlau from "@/assets/logo-blau.png";
 import { WHATSAPP_URL } from "@/constants/whatsapp";
 
-/* ─── Social SVG icons (inline for crisp rendering) ─── */
+/* ─── Social SVG icons ─── */
 const InstagramIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
     <rect x="2" y="2" width="20" height="20" rx="5" />
@@ -78,35 +78,19 @@ export const Footer = () => {
   ];
 
   const socialLinks = [
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/company/blau-consultoria-es",
-      icon: LinkedInIcon,
-    },
-    {
-      label: "Instagram",
-      href: "https://www.instagram.com/blau.consultoria/",
-      icon: InstagramIcon,
-    },
-    {
-      label: "YouTube",
-      href: "https://www.youtube.com/@Blau_ce",
-      icon: YouTubeIcon,
-    },
-    {
-      label: "WhatsApp",
-      href: WHATSAPP_URL,
-      icon: WhatsAppIcon,
-    },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/blau-consultoria-es", icon: LinkedInIcon },
+    { label: "Instagram", href: "https://www.instagram.com/blau.consultoria/", icon: InstagramIcon },
+    { label: "YouTube", href: "https://www.youtube.com/@Blau_ce", icon: YouTubeIcon },
+    { label: "WhatsApp", href: WHATSAPP_URL, icon: WhatsAppIcon },
   ];
 
   return (
     <footer className="relative bg-[hsl(227,30%,10%)] overflow-hidden">
-      {/* Subtle top gradient line */}
+      {/* Top gradient line */}
       <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      {/* Background texture */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Background textures */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/[0.02] rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4" />
       </div>
@@ -178,12 +162,15 @@ export const Footer = () => {
               <img
                 src={logoBlau}
                 alt="Blau Consultoria"
-                className="h-9 w-auto mb-6"
+                className="h-16 w-auto mb-5"
                 style={{
-                  filter: "brightness(1.5) contrast(1.1) drop-shadow(0 0 6px rgba(255,255,255,0.5))"
+                  filter: "invert(1) brightness(2) drop-shadow(0 0 20px rgba(36,82,255,0.5)) drop-shadow(0 0 40px rgba(36,82,255,0.25))"
                 }}
               />
-              <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
+              <p className="text-white/45 text-sm leading-relaxed mb-2 max-w-xs font-serif italic">
+                &ldquo;Só a educação pode mudar o futuro.&rdquo;
+              </p>
+              <p className="text-white/30 text-xs leading-relaxed mb-6 max-w-xs">
                 Consultoria de educação corporativa que transforma empresas em
                 ecossistemas vivos de aprendizagem.
               </p>
@@ -229,7 +216,7 @@ export const Footer = () => {
                   <li key={link.href}>
                     <button
                       onClick={() => handleNavigation(link.href)}
-                      className="text-white/55 hover:text-white text-[13px] transition-colors duration-200 hover:translate-x-0.5 transform inline-block"
+                      className="text-white/50 hover:text-white text-[13px] transition-colors duration-200"
                     >
                       {link.label}
                     </button>
@@ -254,7 +241,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <button
                       onClick={() => handleNavigation(link.href)}
-                      className="text-white/55 hover:text-white text-[13px] transition-colors duration-200 hover:translate-x-0.5 transform inline-block"
+                      className="text-white/50 hover:text-white text-[13px] transition-colors duration-200"
                     >
                       {link.label}
                     </button>
@@ -263,7 +250,7 @@ export const Footer = () => {
               </ul>
             </motion.div>
 
-            {/* Social + Newsletter */}
+            {/* Social */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -274,7 +261,7 @@ export const Footer = () => {
               <h4 className="text-white/30 text-[11px] font-semibold uppercase tracking-[0.2em] mb-6">
                 Redes sociais
               </h4>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 mb-8">
                 {socialLinks.map((link) => {
                   const Icon = link.icon;
                   return (
@@ -291,20 +278,9 @@ export const Footer = () => {
                   );
                 })}
               </div>
-
-              {/* Quick trust signal */}
-              <div className="mt-8 pt-6 border-t border-white/[0.06]">
-                <p className="text-white/25 text-[10px] uppercase tracking-[0.2em] mb-3">
-                  Reconhecimento
-                </p>
-                <div className="space-y-2">
-                  <p className="text-white/40 text-xs">
-                    +50 empresas transformadas
-                  </p>
-                  <p className="text-white/40 text-xs">
-                    Atuação em todo o Brasil
-                  </p>
-                </div>
+              <div className="space-y-2 pt-4 border-t border-white/[0.06]">
+                <p className="text-white/40 text-xs">+50 empresas transformadas</p>
+                <p className="text-white/40 text-xs">Atuação em todo o Brasil</p>
               </div>
             </motion.div>
           </div>
@@ -315,7 +291,6 @@ export const Footer = () => {
           <p className="text-white/25 text-xs">
             &copy; {currentYear} Blau Consultoria. Todos os direitos reservados.
           </p>
-
           <div className="flex items-center gap-6">
             <button
               onClick={() => handleNavigation("/contato")}
