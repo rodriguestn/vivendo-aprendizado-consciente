@@ -3445,13 +3445,20 @@ Um Núcleo de Educação Corporativa é um **setor próprio**, com orçamento, m
 
 A diferença na prática é brutal:
 
-| **RH** | **Núcleo de Educação** |
-|--------|----------------------|
-| Gestão de pessoas | Desenvolvimento de capacidade |
-| Processos administrativos | Formação técnica e estratégica |
-| Cultura básica | Cultura de alta performance |
-| Treinamento pontual | Sistema contínuo de evolução |
-| Cuida de pessoas na estrutura | Desenvolve competência para gerar resultado |
+> **RH** → Gestão de pessoas
+> **Núcleo de Educação** → Desenvolvimento de capacidade
+
+> **RH** → Processos administrativos
+> **Núcleo de Educação** → Formação técnica e estratégica
+
+> **RH** → Cultura básica
+> **Núcleo de Educação** → Cultura de alta performance
+
+> **RH** → Treinamento pontual
+> **Núcleo de Educação** → Sistema contínuo de evolução
+
+> **RH** → Cuida de pessoas na estrutura
+> **Núcleo de Educação** → Desenvolve competência para gerar resultado
 
 ## Setor por setor: onde o Núcleo vai além
 
